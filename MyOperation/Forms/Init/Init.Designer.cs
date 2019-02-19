@@ -1,4 +1,4 @@
-﻿namespace MyOperation.Forms
+﻿namespace MyOperation.Forms.Init
 {
     partial class Init
     {
@@ -55,6 +55,7 @@
             this.Background.Name = "Background";
             this.Background.Size = new System.Drawing.Size(578, 356);
             this.Background.TabIndex = 0;
+            this.Background.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Background_MouseDown);
             // 
             // Init
             // 
@@ -65,10 +66,14 @@
             this.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Init";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Init";
+            this.TopMost = true;
+            this.Load += new System.EventHandler(this.Init_Load);
             this.Border.ResumeLayout(false);
             this.ResumeLayout(false);
 

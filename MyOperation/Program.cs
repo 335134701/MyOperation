@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using MyOperation.Forms;
+using MyOperation.Beans.Class_Beans;
+using MyOperation.Forms.Login;
 
 
 namespace MyOperation
@@ -18,8 +19,9 @@ namespace MyOperation
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //创建Init对象
-            Init init = new Init();
-            Application.Run(init);
+            Program_Init program_Init = new Program_Init();
+            LoginMain loginMain = new LoginMain();
+            Application.Run(loginMain);
         }
     }
 }
