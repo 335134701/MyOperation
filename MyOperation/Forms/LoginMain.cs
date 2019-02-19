@@ -9,22 +9,11 @@ using System.Windows.Forms;
 
 namespace MyOperation.Forms
 {
-    public partial class Init : Form
+    public partial class LoginMain : Form
     {
-        public Init()
+        public LoginMain()
         {
             InitializeComponent();
         }
-
-        /****************************
-         * 
-         * 描述：
-         * 
-         ******************************/
-        public void Init_Init() {
-
-        }
-
-
     }
 }
