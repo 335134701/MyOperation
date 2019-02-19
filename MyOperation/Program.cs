@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using MyOperation.Forms;
+
 
 namespace MyOperation
 {
@@ -15,7 +17,9 @@ namespace MyOperation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //创建Init对象
+            Init init = new Init();
+            Application.Run(init);
         }
     }
 }
