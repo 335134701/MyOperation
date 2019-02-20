@@ -45,7 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Beans\Class_Beans\Program_Init.cs" />
-    <Compile Include="Common_Method\FilesOperation\PhotosOperation.cs" />
+    <Compile Include="Common_Method\Files_Operation\Path_Operation.cs" />
+    <Compile Include="Common_Method\Files_Operation\Photos_Operation.cs" />
     <Compile Include="Forms\Init\Init.cs">
       <SubType>Form</SubType>
     </Compile>

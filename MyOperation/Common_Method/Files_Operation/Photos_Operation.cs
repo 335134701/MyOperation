@@ -32,9 +32,9 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace MyOperation.Common_Method.FilesOperation
+namespace MyOperation.Common_Method.Files_Operation
 {
-    class PhotosOperation
+    public class Photos_Operation
     {
         /******************************
         * 
@@ -43,15 +43,11 @@ namespace MyOperation.Common_Method.FilesOperation
         * *****************************/
         public String CheckPath(String path)
         {
-            //正则表达式判断路径的合法性
-            Regex regex = new Regex(@"^([a-zA-Z]:\\)?[^\/\:\*\?\""\<\>\|\,]*$");
+            //正则表达式判断路径的合法性，绝对路径
+            Regex regex = new Regex(@"^(?<fpath>([a-zA-Z]:\\)([\s\.\-\w]+\\)*)(?<fname>[\w]+.[\w]+)");
             Match m = regex.Match(path);
-            //判断路径是否有值，如果路径不合法则自动赋初值
-            if (path.Equals(null) || m.Success)
-            {
-                //相对路径
-                //path=;
-            }
+            //判断路径是否合法，如果路径不合法则自动赋初值
+            if (path.Equals("") || (!m.Success) || (!Directory.Exists(path)))  path = "";  //绝对路径
             return path;
         }
         /******************************
@@ -59,23 +55,24 @@ namespace MyOperation.Common_Method.FilesOperation
         * 描述：查询所有JPG或者JEPG格式图片，返回路径集合
         * 
         * *****************************/
-        public List<String> All_Serch_Photos(String path)
+        public List<FileInfo> All_Serch_Photos(String path)
         {
             //文件集合对象
-            List<string> fileNames = new List<string>();
+            List<FileInfo> files = new List<FileInfo>();
+            //校验路径的合法性
+            if (this.CheckPath(path).Equals("")) return files;
             //DirectoryInfo类是System.IO命名空间的一部分。它用于创建，删除和移动目录。
             DirectoryInfo dir = new DirectoryInfo(path);
             FileInfo[] fileInfo = dir.GetFiles();
             foreach (FileInfo item in fileInfo)
             {
-                Trace.WriteLine(item);
                 //判断文件的后缀名是否包含.jpg或者.jpeg
                 if (item.Name.ToString().Contains(".jpg") || item.Name.ToString().Contains(".jpeg"))
                 {
-                    fileNames.Add(item.Name);
+                    files.Add(item);
                 }
             }
-            return fileNames;
+            return files;
         }
     }
 }
