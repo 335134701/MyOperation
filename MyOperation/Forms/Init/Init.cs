@@ -45,7 +45,9 @@ namespace MyOperation.Forms.Init
         * *****************************/
         private void Background_MouseDown(object sender, MouseEventArgs e)
         {
+            //释放当前线程中某个窗口捕获的光标
             ReleaseCapture();
+            //向Windows发送拖动窗体的消息
             SendMessage(this.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0);
         }
         #endregion

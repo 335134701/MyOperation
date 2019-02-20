@@ -21,7 +21,13 @@ namespace MyOperation
             //创建Init对象
             Program_Init program_Init = new Program_Init();
             LoginMain loginMain = new LoginMain();
+            //loginMain.ShowDialog();
             Application.Run(loginMain);
+            if (loginMain.DialogResult == DialogResult.OK)
+            {
+                //执行其他主程序
+                // Application.Run(loginMain);
+            }
         }
     }
 }
