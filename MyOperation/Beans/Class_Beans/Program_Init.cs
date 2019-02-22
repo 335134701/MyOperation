@@ -63,19 +63,24 @@ namespace MyOperation.Beans.Class_Beans
         public List<FileInfo> GetAll_Photos_Path(List<FileInfo> paths)
         {
             //获取图片名包含Init图片集合
-            foreach (FileInfo fileinfo in paths) {
+            foreach (FileInfo fileinfo in paths)
+            {
                 if (fileinfo.Name.Contains("Init_")) File_List.Add(fileinfo);
             }
             //返回集合对象
             return File_List;
         }
 
-        public String Get_Photo_Path(int index) {
+        public String Get_Photo_Path(int index)
+        {
             String path = "";
-            foreach (FileInfo fileinfo in File_List) {
-                if (int.Parse(fileinfo.Name.Substring(fileinfo.Name.IndexOf("_"), fileinfo.Name.Length)) == index)
+            foreach (FileInfo fileinfo in File_List)
+            {
+                //截取Init_XX图片中XX进行数字转换，然后和index进行对比，获取相应的图片路径
+                //例如Init_01.jpg，进行分解，分为Init，01，jpg长度为3的数组
+                if (int.Parse(fileinfo.Name.Split(new char[] { '_','.'})[1]) == index)
                 {
-                    path = fileinfo.Directory.ToString();
+                    path = fileinfo.Directory.ToString()+"\\"+fileinfo.Name;
                 }
             }
             return path;

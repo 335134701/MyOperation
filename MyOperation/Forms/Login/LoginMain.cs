@@ -190,7 +190,6 @@ namespace MyOperation.Forms.Login
             //鼠标移除关闭按钮，去掉边框大小
             this.LoginMain_TOP_Close.FlatAppearance.BorderSize = 0;
         }
-
         #endregion
     }
 }
