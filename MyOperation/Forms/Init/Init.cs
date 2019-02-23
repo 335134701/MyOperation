@@ -53,7 +53,6 @@ namespace MyOperation.Forms.Init
         public static extern bool ReleaseCapture();
         [DllImport("user32.dll")]
         public static extern bool SendMessage(IntPtr hwnd, int wMsg, int wParam, int lParam);
-
         /******************************
         * 
         * 描述：鼠标按下事件触发执行方法

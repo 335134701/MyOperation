@@ -34,9 +34,12 @@ namespace MyOperation.Common_Method.Files_Operation
 {
     public class Path_Operation
     {
+        #region 常量表示区域
         //错误表示数组
-        public String[] Error = { "Path_Error"};
+        public String[] Error = { "Path_Error" };
 
+
+        #endregion
         //当前项目绝对路径对象
         private String path;
 
@@ -45,13 +48,13 @@ namespace MyOperation.Common_Method.Files_Operation
             //当前项目路径赋值
             path = System.IO.Directory.GetCurrentDirectory();
         }
-         /******************************
-         * 
-         * 描述：根据需要进行路劲截取
-         *           Level参数表示从右往左第Level个  \   截取
-         *           Substring(0, path.LastIndexOf("\\"))；
-         * 
-         * *****************************/
+        /******************************
+        * 
+        * 描述：根据需要进行路劲截取
+        *           Level参数表示从右往左第Level个  \   截取
+        *           Substring(0, path.LastIndexOf("\\"))；
+        * 
+        * *****************************/
         public String Update_Path(int Level)
         {
             for (int i = 0; i <= Level; i++)
@@ -59,7 +62,7 @@ namespace MyOperation.Common_Method.Files_Operation
                 path = path.Substring(0, path.LastIndexOf("\\"));
             }
             //没有路径或路径全被截取完
-            if (path.Equals(null)) path =Error[0];
+            if (path.Equals(null)) path = Error[0];
             return path;
         }
     }
