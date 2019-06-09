@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using MyOperation.Beans.Class_Beans;
+using MyOperation.Beans.Forms_Beans;
 using MyOperation.Forms.Login;
 
 
@@ -19,7 +19,7 @@ namespace MyOperation
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //创建Init对象
-            Program_Init program_Init = new Program_Init();
+            Init_Bean program_Init = new Init_Bean();
             Application.Run(program_Init.Init);
         }
     }

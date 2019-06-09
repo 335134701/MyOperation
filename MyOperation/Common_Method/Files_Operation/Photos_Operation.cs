@@ -26,21 +26,18 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace MyOperation.Common_Method.Files_Operation
 {
     public class Photos_Operation
     {
-        /******************************
-        * 
-        * 描述：校验路径的合法性方法，若不合法，则自动默认赋初值
-        * 
-        * *****************************/
+        /// <summary>
+        /// 校验路径的合法性方法，若不合法，则自动默认赋初值
+        /// </summary>
+        /// <param name="path">路径参数</param>
+        /// <returns>返回路径</returns>
         public String CheckPath(String path)
         {
             //正则表达式判断路径的合法性，绝对路径
@@ -50,29 +47,35 @@ namespace MyOperation.Common_Method.Files_Operation
             if (path.Equals("") || (!m.Success) || (!Directory.Exists(path)))  path = "";  //绝对路径
             return path;
         }
-        /******************************
-        * 
-        * 描述：查询所有JPG或者JEPG格式图片，返回路径集合
-        * 
-        * *****************************/
-        public List<FileInfo> All_Serch_Photos(String path)
+
+        /// <summary>
+        /// 根据suffixNames数组，查询需要的图像文件格式，返回路径集合
+        /// </summary>
+        /// <param name="path">相对路径</param>
+        /// <param name="suffixNames">需要查询的格式数组</param>
+        /// <returns>返回图像集合类</returns>
+        public List<FileInfo> All_Serch_Photos(String path,String[] suffixNames)
         {
             //文件集合对象
-            List<FileInfo> files = new List<FileInfo>();
+            List<FileInfo> photos_files = new List<FileInfo>();
             //校验路径的合法性
-            if (this.CheckPath(path).Equals("")) return files;
+            if (this.CheckPath(path).Equals("")) return photos_files;
             //DirectoryInfo类是System.IO命名空间的一部分。它用于创建，删除和移动目录。
             DirectoryInfo dir = new DirectoryInfo(path);
             FileInfo[] fileInfo = dir.GetFiles();
             foreach (FileInfo item in fileInfo)
             {
-                //判断文件的后缀名是否包含.jpg或者.jpeg
-                if (item.Name.ToString().Contains(".jpg") || item.Name.ToString().Contains(".jpeg"))
+                //根据文件后缀选取文件
+                foreach (String suffixName in suffixNames)
                 {
-                    files.Add(item);
+                    if (item.Name.ToString().Contains(suffixName) )
+                    {
+                        photos_files.Add(item);
+                        break;
+                    }
                 }
             }
-            return files;
+            return photos_files;
         }
     }
 }

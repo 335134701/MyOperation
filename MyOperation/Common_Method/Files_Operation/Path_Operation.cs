@@ -9,7 +9,7 @@
 /// 项目描述    ：
 /// 文件名称    ：Path_Operation.cs
 /// 类 名 称    ：Path_Operation
-/// 类 描 述    ：
+/// 类 描 述    ：项目中关于路径方法的处理类
 /// 所在的域    ：ZC-PC
 /// 命名空间    ：MyOperation.Common_Method.Files_Operation
 /// 机器名称    ：ZC-PC 
@@ -25,9 +25,6 @@
 /// ***********************************************************************
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 
 namespace MyOperation.Common_Method.Files_Operation
@@ -38,23 +35,24 @@ namespace MyOperation.Common_Method.Files_Operation
         //错误表示数组
         public String[] Error = { "Path_Error" };
 
-
         #endregion
         //当前项目绝对路径对象
         private String path;
-
+        /// <summary>
+        /// 类构造方法，获取当前程序的绝对路径
+        /// </summary>
         public Path_Operation()
         {
             //当前项目路径赋值
             path = System.IO.Directory.GetCurrentDirectory();
         }
-        /******************************
-        * 
-        * 描述：根据需要进行路劲截取
-        *           Level参数表示从右往左第Level个  \   截取
-        *           Substring(0, path.LastIndexOf("\\"))；
-        * 
-        * *****************************/
+
+        /// <summary>
+        /// 根据需要进行路径截取
+        /// </summary>
+        /// <param name="Level"> Level参数表示从右往左第Level个  \   截取
+        ///                       Substring(0, path.LastIndexOf("\\"))；</param>
+        /// <returns></returns>
         public String Update_Path(int Level)
         {
             for (int i = 0; i <= Level; i++)
