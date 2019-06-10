@@ -16,19 +16,21 @@ namespace MyOperation.Forms.Init
             InitializeComponent();
             //管理对象赋值
             this.init_Bean = init_Bean;
+            //启动定时器
+            this.init_Bean.Init_Method.Start_TimerOne();
         }
-        /******************************
-        * 
-        * 描述：Init窗体在绘制过程中加载函数
-        *       
-        * *****************************/
+        /// <summary>
+        /// Init窗体在绘制过程中加载函数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Init_Load(object sender, EventArgs e)
         {
             //设置背景图片
             this.Background.BackgroundImage = Image.FromFile(this.init_Bean.Init_Method.Get_Index_Path().ToString());
         }
-
-        #endregion 
+        #endregion
+        
         /// <summary>
         /// 鼠标按下事件触发执行方法
         /// 主要用于无边框窗体移动的实现
@@ -37,10 +39,8 @@ namespace MyOperation.Forms.Init
         /// <param name="e"></param>
         public void Background_MouseDown(object sender, MouseEventArgs e)
         {
-            //释放当前线程中某个窗口捕获的光标
-            Init_Bean.ReleaseCapture();
-            //向Windows发送拖动窗体的消息
-            Init_Bean.SendMessage(this.Handle, Init_Bean.WM_SYSCOMMAND, Init_Bean.SC_MOVE + Init_Bean.HTCAPTION, 0);
+            this.init_Bean.Init_Method.Form_Move(this);
         }
+
     }
 }

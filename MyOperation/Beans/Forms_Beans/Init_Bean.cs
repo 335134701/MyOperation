@@ -32,6 +32,7 @@ using MyOperation.Common_Method.Files_Operation;
 using MyOperation.Forms_Methods.Init_Methods;
 using MyOperation.Forms_Methods.Form_Common_Methods;
 using System.Runtime.InteropServices;
+using System.Timers;
 
 namespace MyOperation.Beans.Forms_Beans
 {
@@ -45,15 +46,20 @@ namespace MyOperation.Beans.Forms_Beans
         private Photo_Method photo_Method;
         private Init_Method init_Method;
         private Init init;
+        //申明定时器对象
+        private Timer timerOne;
 
 
 
         public Init_Bean()
         {
+            //TimerOne对象在Init_Method中使用，因此需要先实例化TimerOne，再实例化Init_Method
+            TimerOne = new Timer();
             Photos_Operation = new Photos_Operation();
             path_Operation = new Path_Operation();
             Photo_Method = new Photo_Method();
-            Init_Method = new Init_Method(this);
+            if (TimerOne != null) Init_Method = new Init_Method(this);
+            else { TimerOne = new Timer(); Init_Method = new Init_Method(this); }
             All_Init_Photos = new List<FileInfo>();
             Init = new Init(this);
         }
@@ -86,5 +92,6 @@ namespace MyOperation.Beans.Forms_Beans
         public Photo_Method Photo_Method { get => photo_Method; set => photo_Method = value; }
         public Init_Method Init_Method { get => init_Method; set => init_Method = value; }
         public List<FileInfo> All_Init_Photos { get => all_Init_Photos; set => all_Init_Photos = value; }
+        public Timer TimerOne { get => timerOne; set => timerOne = value; }
     }
 }

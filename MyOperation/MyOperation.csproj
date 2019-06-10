@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Beans\Forms_Beans\Init_Bean.cs" />
+    <Compile Include="Beans\Forms_Beans\LoginMain_Bean.cs" />
     <Compile Include="Common_Method\Files_Operation\Path_Operation.cs" />
     <Compile Include="Common_Method\Files_Operation\Photos_Operation.cs" />
     <Compile Include="Forms\Init\Init.cs">
@@ -61,7 +62,9 @@
     </Compile>
     <Compile Include="Forms_Methods\Form_Common_Methods\Photo_Method.cs" />
     <Compile Include="Forms_Methods\Init_Methods\Init_Method.cs" />
+    <Compile Include="Forms_Methods\Login\LoginMain_Method.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Program_Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Init\Init.resx">
       <DependentUpon>Init.cs</DependentUpon>

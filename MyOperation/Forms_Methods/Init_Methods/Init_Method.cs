@@ -24,6 +24,9 @@
 ///
 /// ***********************************************************************
 using System;
+using System.Diagnostics;
+using System.Timers;
+using System.Windows.Forms;
 using MyOperation.Beans.Forms_Beans;
 
 namespace MyOperation.Forms_Methods.Init_Methods
@@ -37,7 +40,17 @@ namespace MyOperation.Forms_Methods.Init_Methods
         {
             this.init_Bean = init_Bean;
         }
-
+        /// <summary>
+        /// 处理窗体取消边框后的移动问题
+        /// </summary>
+        /// <param name="form"></param>
+        public void Form_Move(Form form)
+        {
+            //释放当前线程中某个窗口捕获的光标
+            Init_Bean.ReleaseCapture();
+            //向Windows发送拖动窗体的消息
+            Init_Bean.SendMessage(form.Handle, Init_Bean.WM_SYSCOMMAND, Init_Bean.SC_MOVE + Init_Bean.HTCAPTION, 0);
+        }
         /// <summary>
         /// Init窗体中获取背景图片绝对路径处理方法，实现随机显示背景图片
         /// </summary>
@@ -54,6 +67,37 @@ namespace MyOperation.Forms_Methods.Init_Methods
             //获取生成的随机数对应的图片路径
             String path = this.init_Bean.Photo_Method.Get_Photo_Path(rd.Next(1, this.init_Bean.All_Init_Photos.Count), this.init_Bean.All_Init_Photos);
             return path;
+        }
+        /// <summary>
+        /// 初始化定时器1
+        /// </summary>
+        public void Init_TimerOne()
+        {
+            //设置定时器周期执行间隔时间，单位毫秒
+            this.init_Bean.TimerOne.Interval = 2500;
+            //指定定时器执行的方法
+            this.init_Bean.TimerOne.Elapsed += new ElapsedEventHandler(Timer_Method);
+            //设置定时器是否周期执行
+            this.init_Bean.TimerOne.AutoReset = false;
+        }
+        /// <summary>
+        /// 启动定时器1
+        /// </summary>
+        public void Start_TimerOne()
+        {
+            //初始化定时器1
+            this.Init_TimerOne();
+            //开启定时器1
+            this.init_Bean.TimerOne.Start();
+        }
+        public void Timer_Method(object source, ElapsedEventArgs e)
+        {
+            //设置Init窗体关闭状态
+            this.init_Bean.Init.DialogResult = DialogResult.OK;
+            //关闭Init窗体
+            this.init_Bean.Init.Close();
+            //释放定时器1
+            this.init_Bean.TimerOne.Close();
         }
     }
 }

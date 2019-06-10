@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using MyOperation.Beans.Forms_Beans;
@@ -18,9 +19,10 @@ namespace MyOperation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //创建Init对象
-            Init_Bean program_Init = new Init_Bean();
-            Application.Run(program_Init.Init);
+            //Trace.WriteLine(DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-ffff")+"：Program_Main创建");
+            //创建Program_Main对象
+            Program_Main program_Main = new Program_Main();
+            program_Main.Transfer_Init_Form();
         }
     }
 }
