@@ -48,6 +48,9 @@ namespace MyOperation.Beans.Forms_Beans
         private Init init;
         //申明定时器对象
         private Timer timerOne;
+        private int timerOneInterval = 2500;
+        //申明委托事件，处理定时器关闭窗体事件
+        public delegate void Init_Close();
 
 
 
@@ -93,5 +96,7 @@ namespace MyOperation.Beans.Forms_Beans
         public Init_Method Init_Method { get => init_Method; set => init_Method = value; }
         public List<FileInfo> All_Init_Photos { get => all_Init_Photos; set => all_Init_Photos = value; }
         public Timer TimerOne { get => timerOne; set => timerOne = value; }
+        public int TimerOneInterval { get => timerOneInterval; set => timerOneInterval = value; }
+
     }
 }

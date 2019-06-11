@@ -41,7 +41,7 @@ namespace MyOperation.Forms_Methods.Login
         /// 处理窗体取消边框后的移动问题
         /// </summary>
         /// <param name="form"></param>
-        public void Form_Move(Form form)
+        public void LoginMain_Form_Move(Form form)
         {
             //释放当前线程中某个窗口捕获的光标
             Init_Bean.ReleaseCapture();

@@ -28,13 +28,13 @@ using System.Diagnostics;
 using System.Timers;
 using System.Windows.Forms;
 using MyOperation.Beans.Forms_Beans;
+using MyOperation.Forms.Init;
 
 namespace MyOperation.Forms_Methods.Init_Methods
 {
     public class Init_Method
     {
         private Init_Bean init_Bean;
-
 
         public Init_Method(Init_Bean init_Bean)
         {
@@ -44,7 +44,7 @@ namespace MyOperation.Forms_Methods.Init_Methods
         /// 处理窗体取消边框后的移动问题
         /// </summary>
         /// <param name="form"></param>
-        public void Form_Move(Form form)
+        public void Init_Form_Move(Form form)
         {
             //释放当前线程中某个窗口捕获的光标
             Init_Bean.ReleaseCapture();
@@ -55,7 +55,7 @@ namespace MyOperation.Forms_Methods.Init_Methods
         /// Init窗体中获取背景图片绝对路径处理方法，实现随机显示背景图片
         /// </summary>
         /// <returns></returns>
-        public String Get_Index_Path()
+        public String Get_Index_PhotoPath()
         {
 
             this.init_Bean.All_Init_Photos = this.init_Bean.Photo_Method.Get_AllPhotos_Path(
@@ -74,9 +74,9 @@ namespace MyOperation.Forms_Methods.Init_Methods
         public void Init_TimerOne()
         {
             //设置定时器周期执行间隔时间，单位毫秒
-            this.init_Bean.TimerOne.Interval = 2500;
+            this.init_Bean.TimerOne.Interval = this.init_Bean.TimerOneInterval;
             //指定定时器执行的方法
-            this.init_Bean.TimerOne.Elapsed += new ElapsedEventHandler(Timer_Method);
+            this.init_Bean.TimerOne.Elapsed += new ElapsedEventHandler(TimerOne_Method);
             //设置定时器是否周期执行
             this.init_Bean.TimerOne.AutoReset = false;
         }
@@ -88,16 +88,32 @@ namespace MyOperation.Forms_Methods.Init_Methods
             //初始化定时器1
             this.Init_TimerOne();
             //开启定时器1
-            this.init_Bean.TimerOne.Start();
+            this.init_Bean.TimerOne.Enabled=true;
         }
-        public void Timer_Method(object source, ElapsedEventArgs e)
+        /// <summary>
+        /// 定时器定时执行方法
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="e"></param>
+        public void TimerOne_Method(object source, ElapsedEventArgs e)
+        { 
+            //释放定时器1
+            this.init_Bean.TimerOne.Close();
+            //由于定时器线程与UI线程不在同一线程之中故需使用委托的方式对UI线程执行操作
+            //control.invoke(参数delegate)方法:在拥有此控件的基础窗口句柄的线程上执行指定的委托。
+            //control.begininvoke(参数delegate)方法:在创建控件的基础句柄所在线程上异步执行指定委托。
+            this.init_Bean.Init.BeginInvoke(new Init_Bean.Init_Close(Init_Form_Close));   
+        }
+        /// <summary>
+        /// 由于定时器与窗体不是同一个线程，暂时无法在定时器执行方法中关闭Init窗体，故采用委托的方式关闭窗体
+        /// </summary>
+        public void Init_Form_Close()
         {
             //设置Init窗体关闭状态
             this.init_Bean.Init.DialogResult = DialogResult.OK;
             //关闭Init窗体
             this.init_Bean.Init.Close();
-            //释放定时器1
-            this.init_Bean.TimerOne.Close();
         }
+       
     }
 }
