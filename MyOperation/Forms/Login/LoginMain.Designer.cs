@@ -181,7 +181,7 @@
             // 
             this.LoginMain_notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("LoginMain_notifyIcon1.Icon")));
             this.LoginMain_notifyIcon1.Text = "notifyIcon1";
-            this.LoginMain_notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            this.LoginMain_notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon1_MouseDoubleClick);
             // 
             // LoginMain
             // 

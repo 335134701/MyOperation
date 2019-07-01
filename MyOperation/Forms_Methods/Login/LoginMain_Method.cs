@@ -36,7 +36,6 @@ namespace MyOperation.Forms_Methods.Login
             this.loginMain_Bean = loginMain_Bean;
         }
 
-
         /// <summary>
         /// 处理窗体取消边框后的移动问题
         /// </summary>

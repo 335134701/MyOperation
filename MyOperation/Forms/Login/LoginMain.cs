@@ -14,6 +14,7 @@ namespace MyOperation.Forms.Login
     public partial class LoginMain : Form
     {
         private LoginMain_Bean loginMain_Bean;
+
         #region 窗体绘制
         public LoginMain(LoginMain_Bean loginMain_Bean)
         {
@@ -41,49 +42,37 @@ namespace MyOperation.Forms.Login
         /// <param name="e"></param>
         private void TOP_MouseDown(object sender, MouseEventArgs e)
         {
-            //释放当前线程中某个窗口捕获的光标
-            LoginMain_Bean.ReleaseCapture();
-            //向Windows发送拖动窗体的消息
-            LoginMain_Bean.SendMessage(this.Handle, LoginMain_Bean.WM_SYSCOMMAND, LoginMain_Bean.SC_MOVE + LoginMain_Bean.HTCAPTION, 0);
+            this.loginMain_Bean.LoginMain_Method.LoginMain_Form_Move(this);
         }
-        /******************************
-        * 
-        * 描述：鼠标按下事件触发执行方法
-        *           1.主要用于无边框窗体移动的实现
-        * 
-        * *****************************/
+        /// <summary>
+        /// 鼠标按下事件触发执行方法
+        /// 主要用于无边框窗体移动的实现
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Bottom_MouseDown(object sender, MouseEventArgs e)
         {
-            //释放当前线程中某个窗口捕获的光标
-            LoginMain_Bean.ReleaseCapture();
-            //向Windows发送拖动窗体的消息
-            LoginMain_Bean.SendMessage(this.Handle, LoginMain_Bean.WM_SYSCOMMAND, LoginMain_Bean.SC_MOVE + LoginMain_Bean.HTCAPTION, 0);
+            this.loginMain_Bean.LoginMain_Method.LoginMain_Form_Move(this);
         }
-        /******************************
-        * 
-        * 描述：鼠标按下事件触发执行方法
-        *           1.主要用于无边框窗体移动的实现
-        * 
-        * *****************************/
+        /// <summary>
+        /// 鼠标按下事件触发执行方法
+        /// 主要用于无边框窗体移动的实现
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TOP_Left_MouseDown(object sender, MouseEventArgs e)
         {
-            //释放当前线程中某个窗口捕获的光标
-            LoginMain_Bean.ReleaseCapture();
-            //向Windows发送拖动窗体的消息
-            LoginMain_Bean.SendMessage(this.Handle, LoginMain_Bean.WM_SYSCOMMAND, LoginMain_Bean.SC_MOVE + LoginMain_Bean.HTCAPTION, 0);
+            this.loginMain_Bean.LoginMain_Method.LoginMain_Form_Move(this);
         }
-        /******************************
-        * 
-        * 描述：鼠标按下事件触发执行方法
-        *           1.主要用于无边框窗体移动的实现
-        * 
-        * *****************************/
+        /// <summary>
+        /// 鼠标按下事件触发执行方法
+        /// 主要用于无边框窗体移动的实现
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TOP_Right_MouseDown(object sender, MouseEventArgs e)
         {
-            //释放当前线程中某个窗口捕获的光标
-            LoginMain_Bean.ReleaseCapture();
-            //向Windows发送拖动窗体的消息
-            LoginMain_Bean.SendMessage(this.Handle, LoginMain_Bean.WM_SYSCOMMAND, LoginMain_Bean.SC_MOVE + LoginMain_Bean.HTCAPTION, 0);
+            this.loginMain_Bean.LoginMain_Method.LoginMain_Form_Move(this);
         }
 
         #region  TOP按钮触发事件处理实现
@@ -114,14 +103,13 @@ namespace MyOperation.Forms.Login
             this.DialogResult = DialogResult.OK;
             this.Dispose();
         }
-
         /// <summary>
         /// 双击系统托盘图标执行方法
         /// 主要用于窗体还原的实现
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void NotifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             //设置窗体正常显示
             this.WindowState = FormWindowState.Normal;
@@ -130,7 +118,6 @@ namespace MyOperation.Forms.Login
             //开启任务栏显示
             this.ShowInTaskbar = true;
         }
-
         /// <summary>
         /// 按钮移入事件触发执行方法
         /// 主要用于背景边框改变的实现

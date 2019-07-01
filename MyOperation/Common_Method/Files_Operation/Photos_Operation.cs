@@ -77,5 +77,45 @@ namespace MyOperation.Common_Method.Files_Operation
             }
             return photos_files;
         }
+        /// <summary>
+        /// 根据prefixNmae获取相应的图片集合路径
+        /// </summary>
+        /// <param name="path_Allfile">路径下所有的文件集合</param>
+        /// <param name="prefixNmae">寻找文件前缀</param>
+        /// <returns>返回集合对象</returns>
+        public List<FileInfo> Get_AllPhotos_Path(List<FileInfo> All_Init_Photos, String prefixNmae)
+        {
+            List<FileInfo> photosFile_List = new List<FileInfo>();
+            //获取图片名包含Init图片集合
+            foreach (FileInfo fileinfo in All_Init_Photos)
+            {
+                if (fileinfo.Name.Contains(prefixNmae)) photosFile_List.Add(fileinfo);
+            }
+            //返回集合对象
+            return photosFile_List;
+        }
+
+        /// <summary>
+        /// 获取指定图像文件的绝对路径
+        /// </summary>
+        /// <param name="index">图片编号</param>
+        /// <param name="photosFile_List">指定图片文件的集合</param>
+        /// <returns>返回绝对路径</returns>
+        public String Get_Photo_Path(int index, List<FileInfo> photosFile_List)
+        {
+            String path = "";
+            //循环遍历文件，找到对应指定规则的图片
+            foreach (FileInfo fileinfo in photosFile_List)
+            {
+                //截取Init_XX图片中XX进行数字转换，然后和index进行对比，获取相应的图片路径
+                //例如Init_01.jpg，进行分解，分为Init，01，jpg长度为3的数组
+                if (int.Parse(fileinfo.Name.Split(new char[] { '_', '.' })[1]) == index)
+                {
+                    path = fileinfo.Directory.ToString() + "\\" + fileinfo.Name;
+                }
+            }
+            //返回绝对路径
+            return path;
+        }
     }
 }

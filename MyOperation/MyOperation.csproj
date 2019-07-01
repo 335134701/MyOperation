@@ -60,7 +60,6 @@
     <Compile Include="Forms\Login\LoginMain.Designer.cs">
       <DependentUpon>LoginMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms_Methods\Form_Common_Methods\Photo_Method.cs" />
     <Compile Include="Forms_Methods\Init_Methods\Init_Method.cs" />
     <Compile Include="Forms_Methods\Login\LoginMain_Method.cs" />
     <Compile Include="Program.cs" />
@@ -94,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common_Method\Logs\" />
+    <Folder Include="Forms_Methods\Form_Common_Methods\" />
     <Folder Include="JDBC\" />
   </ItemGroup>
   <ItemGroup>

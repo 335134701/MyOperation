@@ -58,14 +58,14 @@ namespace MyOperation.Forms_Methods.Init_Methods
         public String Get_Index_PhotoPath()
         {
 
-            this.init_Bean.All_Init_Photos = this.init_Bean.Photo_Method.Get_AllPhotos_Path(
+            this.init_Bean.All_Init_Photos = this.init_Bean.Photos_Operation.Get_AllPhotos_Path(
                 this.init_Bean.Photos_Operation.All_Serch_Photos(
                     this.init_Bean.Path_Operation.Update_Path(1) + this.init_Bean.ImagesDir, new String[] { "jpg", "jpeg" })
                     , "Init_");
             //生成随机数
             Random rd = new Random();
             //获取生成的随机数对应的图片路径
-            String path = this.init_Bean.Photo_Method.Get_Photo_Path(rd.Next(1, this.init_Bean.All_Init_Photos.Count), this.init_Bean.All_Init_Photos);
+            String path = this.init_Bean.Photos_Operation.Get_Photo_Path(rd.Next(1, this.init_Bean.All_Init_Photos.Count), this.init_Bean.All_Init_Photos);
             return path;
         }
         /// <summary>

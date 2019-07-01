@@ -30,7 +30,6 @@ using System.IO;
 using MyOperation.Forms.Init;
 using MyOperation.Common_Method.Files_Operation;
 using MyOperation.Forms_Methods.Init_Methods;
-using MyOperation.Forms_Methods.Form_Common_Methods;
 using System.Runtime.InteropServices;
 using System.Timers;
 
@@ -43,7 +42,6 @@ namespace MyOperation.Beans.Forms_Beans
         private List<FileInfo> all_Init_Photos;
         private Photos_Operation photos_Operation;
         private Path_Operation path_Operation;
-        private Photo_Method photo_Method;
         private Init_Method init_Method;
         private Init init;
         //申明定时器对象
@@ -60,7 +58,6 @@ namespace MyOperation.Beans.Forms_Beans
             TimerOne = new Timer();
             Photos_Operation = new Photos_Operation();
             path_Operation = new Path_Operation();
-            Photo_Method = new Photo_Method();
             if (TimerOne != null) Init_Method = new Init_Method(this);
             else { TimerOne = new Timer(); Init_Method = new Init_Method(this); }
             All_Init_Photos = new List<FileInfo>();
@@ -71,18 +68,13 @@ namespace MyOperation.Beans.Forms_Beans
         private const int wM_SYSCOMMAND = 0x0112;
         private const int sC_MOVE = 0xF010;
         private const int hTCAPTION = 0x0002;
-
         public static int WM_SYSCOMMAND => wM_SYSCOMMAND;
-
         public static int SC_MOVE => sC_MOVE;
-
         public static int HTCAPTION => hTCAPTION;
-
         [DllImport("user32.dll")]//拖动无窗体的控件
         public static extern bool ReleaseCapture();
         [DllImport("user32.dll")]
         public static extern bool SendMessage(IntPtr hwnd, int wMsg, int wParam, int lParam);
-
         #endregion
         
         /// <summary>
@@ -92,7 +84,6 @@ namespace MyOperation.Beans.Forms_Beans
         public Photos_Operation Photos_Operation { get => photos_Operation; set => photos_Operation = value; }
         public Path_Operation Path_Operation { get => path_Operation; set => path_Operation = value; }
         public string ImagesDir { get => imagesDir; set => imagesDir = value; }
-        public Photo_Method Photo_Method { get => photo_Method; set => photo_Method = value; }
         public Init_Method Init_Method { get => init_Method; set => init_Method = value; }
         public List<FileInfo> All_Init_Photos { get => all_Init_Photos; set => all_Init_Photos = value; }
         public Timer TimerOne { get => timerOne; set => timerOne = value; }

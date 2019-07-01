@@ -25,10 +25,7 @@
 /// ***********************************************************************
 using MyOperation.Beans.Forms_Beans;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace MyOperation
@@ -36,6 +33,7 @@ namespace MyOperation
     public class Program_Main
     {
         private Init_Bean init_Bean;
+        private LoginMain_Bean loginMain_Bean;
         public Program_Main()
         {
 
@@ -45,16 +43,28 @@ namespace MyOperation
         /// </summary>
         public void Program_Process()
         {
-            this.Transfer_Init_Form();
+            String status=this.Transfer_Init_Form();
+            if (!status.Equals("OK")) return;
+            status = this.Transfer_Login_Form();
         }
         /// <summary>
-        /// 启动初始化界面
+        ///Init窗体执行
         /// </summary>
         public String Transfer_Init_Form()
         {
             init_Bean = new Init_Bean();
             Application.Run(init_Bean.Init);
-            return null;
+            return init_Bean.Init.DialogResult.ToString();
+        }
+        /// <summary>
+        /// Login窗体逻辑执行
+        /// </summary>
+        /// <returns></returns>
+        public String Transfer_Login_Form()
+        {
+            loginMain_Bean = new LoginMain_Bean();
+            Application.Run(loginMain_Bean.LoginMain);
+            return loginMain_Bean.LoginMain.DialogResult.ToString();
         }
     }
 }
