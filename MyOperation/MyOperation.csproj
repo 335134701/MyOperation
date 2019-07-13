@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -81,6 +85,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Configuration\Log4net.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -92,11 +97,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common_Method\Logs\" />
+    <Folder Include="Common_Method\Log_Operation\" />
     <Folder Include="Forms_Methods\Form_Common_Methods\" />
     <Folder Include="JDBC\" />
+    <Folder Include="libs\" />
+    <Folder Include="Logs\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dlls\log4net.dll" />
     <Content Include="Images\Ico_01.ico" />
     <Content Include="Images\Init_01.jpg" />
     <Content Include="Images\LoginMain_01_Close.png" />
