@@ -52,6 +52,7 @@
     <Compile Include="Beans\Forms_Beans\LoginMain_Bean.cs" />
     <Compile Include="Common_Method\Files_Operation\Path_Operation.cs" />
     <Compile Include="Common_Method\Files_Operation\Photos_Operation.cs" />
+    <Compile Include="Common_Method\Log_Operation\LogHelper.cs" />
     <Compile Include="Forms\Init\Init.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,7 +86,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Configuration\Log4net.config" />
+    <None Include="Log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -97,14 +100,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common_Method\Log_Operation\" />
+    <Folder Include="Configuration\" />
     <Folder Include="Forms_Methods\Form_Common_Methods\" />
     <Folder Include="JDBC\" />
-    <Folder Include="libs\" />
-    <Folder Include="Logs\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dlls\log4net.dll" />
     <Content Include="Images\Ico_01.ico" />
     <Content Include="Images\Init_01.jpg" />
     <Content Include="Images\LoginMain_01_Close.png" />

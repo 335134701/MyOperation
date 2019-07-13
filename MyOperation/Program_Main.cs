@@ -24,6 +24,7 @@
 ///
 /// ***********************************************************************
 using MyOperation.Beans.Forms_Beans;
+using MyOperation.Common_Method.Log_Operation;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
