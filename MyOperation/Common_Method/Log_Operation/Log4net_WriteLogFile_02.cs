@@ -2,13 +2,13 @@
 ///
 /// =================================
 /// 创 建 者    ：congz
-/// 创建日期    ：2019/8/22 19:58:16
+/// 创建日期    ：2019/8/22 19:57:38
 /// 邮箱        ：335134701@qq.com
 /// =================================
 /// 项目名称    ：MyOperation.Common_Method.Log_Operation
 /// 项目描述    ：
-/// 文件名称    ：LogHelper.cs
-/// 类 名 称    ：LogHelper
+/// 文件名称    ：Log4net_WriteLogFile_02.cs
+/// 类 名 称    ：Log4net_WriteLogFile_02
 /// 类 描 述    ：
 /// 所在的域    ：ZC-PC
 /// 命名空间    ：MyOperation.Common_Method.Log_Operation
@@ -31,9 +31,31 @@ using System.Text;
 
 namespace MyOperation.Common_Method.Log_Operation
 {
-    public class LogHelper
+    public class Log4net_WriteLogFile_02
     {
-        public static readonly ILog log = LogManager.GetLogger("Log");
+        /*写入日志文件配置,第二种方式*/
+        public static readonly ILog rollingFileAppender = LogManager.GetLogger("RollingFileAppender");
+
+        /// <summary>
+        /// 无参构造函数
+        /// </summary>
+        public Log4net_WriteLogFile_02()
+        {
+            this.Demo("1111111111111111");
+        }
+        /// <summary>
+        /// 测试案例
+        /// </summary>
+        /// <param name="text"></param>
+        public void Demo(String text)
+        {
+            Log4net_WriteLogFile_02.WriteInfoLog(text);
+            Log4net_WriteLogFile_02.WriteWarnLog(text);
+            Log4net_WriteLogFile_02.WriteDebugLog(text);
+            Log4net_WriteLogFile_02.WriteErrorLog(text);
+            Log4net_WriteLogFile_02.WriteFatalLog(text);
+        }
+
 
         /// <summary>
         /// 正常日志输出写入文本方法
@@ -42,9 +64,9 @@ namespace MyOperation.Common_Method.Log_Operation
         /// <param name="args"></param>
         public static void WriteInfoLog(string message, params object[] args)
         {
-            if (log.IsInfoEnabled)
+            if (rollingFileAppender.IsInfoEnabled)
             {
-                log.InfoFormat(message, args);
+                rollingFileAppender.InfoFormat(message, args);
             }
         }
         /// <summary>
@@ -54,9 +76,9 @@ namespace MyOperation.Common_Method.Log_Operation
         /// <param name="args"></param>
         public static void WriteWarnLog(string message, params object[] args)
         {
-            if (log.IsWarnEnabled)
+            if (rollingFileAppender.IsWarnEnabled)
             {
-                log.WarnFormat(message, args);
+                rollingFileAppender.WarnFormat(message, args);
             }
         }
         /// <summary>
@@ -66,9 +88,9 @@ namespace MyOperation.Common_Method.Log_Operation
         /// <param name="args"></param>
         public static void WriteErrorLog(string message, params object[] args)
         {
-            if (log.IsErrorEnabled)
+            if (rollingFileAppender.IsErrorEnabled)
             {
-                log.ErrorFormat(message, args);
+                rollingFileAppender.ErrorFormat(message, args);
             }
         }
         /// <summary>
@@ -78,9 +100,9 @@ namespace MyOperation.Common_Method.Log_Operation
         /// <param name="args"></param>
         public static void WriteDebugLog(string message, params object[] args)
         {
-            if (log.IsDebugEnabled)
+            if (rollingFileAppender.IsDebugEnabled)
             {
-                log.DebugFormat(message, args);
+                rollingFileAppender.DebugFormat(message, args);
             }
         }
         /// <summary>
@@ -90,9 +112,9 @@ namespace MyOperation.Common_Method.Log_Operation
         /// <param name="args"></param>
         public static void WriteFatalLog(string message, params object[] args)
         {
-            if (log.IsFatalEnabled)
+            if (rollingFileAppender.IsFatalEnabled)
             {
-                log.FatalFormat(message, args);
+                rollingFileAppender.FatalFormat(message, args);
             }
         }
     }

@@ -2,13 +2,13 @@
 ///
 /// =================================
 /// 创 建 者    ：congz
-/// 创建日期    ：2019/8/22 19:58:16
+/// 创建日期    ：2019/8/22 19:57:02
 /// 邮箱        ：335134701@qq.com
 /// =================================
 /// 项目名称    ：MyOperation.Common_Method.Log_Operation
 /// 项目描述    ：
-/// 文件名称    ：LogHelper.cs
-/// 类 名 称    ：LogHelper
+/// 文件名称    ：Log4net_WriteLogFile_01.cs
+/// 类 名 称    ：Log4net_WriteLogFile_01
 /// 类 描 述    ：
 /// 所在的域    ：ZC-PC
 /// 命名空间    ：MyOperation.Common_Method.Log_Operation
@@ -31,10 +31,33 @@ using System.Text;
 
 namespace MyOperation.Common_Method.Log_Operation
 {
-    public class LogHelper
+    public class Log4net_WriteLogFile_01
     {
-        public static readonly ILog log = LogManager.GetLogger("Log");
-
+        /*写入日志文件配置,第一种方式*/
+        public static readonly ILog infoLog_Write = LogManager.GetLogger("Info_Write");
+        public static readonly ILog warnLog_Write = LogManager.GetLogger("Warn_Write");
+        public static readonly ILog errorLog_Write = LogManager.GetLogger("Error_Write");
+        public static readonly ILog debugLog_Write = LogManager.GetLogger("Debug_Write");
+        public static readonly ILog fatalLog_Write = LogManager.GetLogger("Fatal_Write");
+        /// <summary>
+        /// 无参构造函数
+        /// </summary>
+        public Log4net_WriteLogFile_01()
+        {
+            this.Demo("1111111111111111");
+        }
+        /// <summary>
+        /// 测试案例
+        /// </summary>
+        /// <param name="text"></param>
+        public void Demo(String text)
+        {
+            Log4net_WriteLogFile_01.WriteInfoLog(text);
+            Log4net_WriteLogFile_01.WriteWarnLog(text);
+            Log4net_WriteLogFile_01.WriteDebugLog(text);
+            Log4net_WriteLogFile_01.WriteErrorLog(text);
+            Log4net_WriteLogFile_01.WriteFatalLog(text);
+        }
         /// <summary>
         /// 正常日志输出写入文本方法
         /// </summary>
@@ -42,9 +65,9 @@ namespace MyOperation.Common_Method.Log_Operation
         /// <param name="args"></param>
         public static void WriteInfoLog(string message, params object[] args)
         {
-            if (log.IsInfoEnabled)
+            if (infoLog_Write.IsInfoEnabled)
             {
-                log.InfoFormat(message, args);
+                infoLog_Write.InfoFormat(message, args);
             }
         }
         /// <summary>
@@ -54,9 +77,9 @@ namespace MyOperation.Common_Method.Log_Operation
         /// <param name="args"></param>
         public static void WriteWarnLog(string message, params object[] args)
         {
-            if (log.IsWarnEnabled)
+            if (warnLog_Write.IsWarnEnabled)
             {
-                log.WarnFormat(message, args);
+                warnLog_Write.WarnFormat(message, args);
             }
         }
         /// <summary>
@@ -66,9 +89,9 @@ namespace MyOperation.Common_Method.Log_Operation
         /// <param name="args"></param>
         public static void WriteErrorLog(string message, params object[] args)
         {
-            if (log.IsErrorEnabled)
+            if (errorLog_Write.IsErrorEnabled)
             {
-                log.ErrorFormat(message, args);
+                errorLog_Write.ErrorFormat(message, args);
             }
         }
         /// <summary>
@@ -78,9 +101,9 @@ namespace MyOperation.Common_Method.Log_Operation
         /// <param name="args"></param>
         public static void WriteDebugLog(string message, params object[] args)
         {
-            if (log.IsDebugEnabled)
+            if (debugLog_Write.IsDebugEnabled)
             {
-                log.DebugFormat(message, args);
+                debugLog_Write.DebugFormat(message, args);
             }
         }
         /// <summary>
@@ -90,9 +113,9 @@ namespace MyOperation.Common_Method.Log_Operation
         /// <param name="args"></param>
         public static void WriteFatalLog(string message, params object[] args)
         {
-            if (log.IsFatalEnabled)
+            if (fatalLog_Write.IsFatalEnabled)
             {
-                log.FatalFormat(message, args);
+                fatalLog_Write.FatalFormat(message, args);
             }
         }
     }

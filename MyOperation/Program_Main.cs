@@ -44,8 +44,10 @@ namespace MyOperation
         /// </summary>
         public void Program_Process()
         {
+          
             String status=this.Transfer_Init_Form();
             if (!status.Equals("OK")) return;
+       
             status = this.Transfer_Login_Form();
         }
         /// <summary>
@@ -53,8 +55,11 @@ namespace MyOperation
         /// </summary>
         public String Transfer_Init_Form()
         {
+          
             init_Bean = new Init_Bean();
+           
             Application.Run(init_Bean.Init);
+           
             return init_Bean.Init.DialogResult.ToString();
         }
         /// <summary>
@@ -63,8 +68,11 @@ namespace MyOperation
         /// <returns></returns>
         public String Transfer_Login_Form()
         {
+           
             loginMain_Bean = new LoginMain_Bean();
+          
             Application.Run(loginMain_Bean.LoginMain);
+           
             return loginMain_Bean.LoginMain.DialogResult.ToString();
         }
     }

@@ -39,4 +39,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 //自定义配置文件 ConfigFile :配置名;Watch:监听
-[assembly: log4net.Config.XmlConfigurator(ConfigFile = "Log4net.config", Watch = true)]
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = @"Configuration\Log\Log4net.config", Watch = true)]
