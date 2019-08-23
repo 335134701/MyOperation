@@ -44,7 +44,11 @@ namespace MyOperation.Common_Method.Log_Operation
         {
             if (log.IsInfoEnabled)
             {
-                log.InfoFormat(message, args);
+                for (int i = 0; i < args.Length; i++)
+                {
+                    message = message + "\n" + "             " + args[i];
+                }
+                log.Info(message);
             }
         }
         /// <summary>
@@ -56,7 +60,11 @@ namespace MyOperation.Common_Method.Log_Operation
         {
             if (log.IsWarnEnabled)
             {
-                log.WarnFormat(message, args);
+                for (int i = 0; i < args.Length; i++)
+                {
+                    message = message + "\n" + "             " + args[i];
+                }
+                log.Warn(message);
             }
         }
         /// <summary>
@@ -64,11 +72,12 @@ namespace MyOperation.Common_Method.Log_Operation
         /// </summary>
         /// <param name="message"></param>
         /// <param name="args"></param>
-        public static void WriteErrorLog(string message, params object[] args)
+        public static void WriteErrorLog(string message, Exception ex)
         {
             if (log.IsErrorEnabled)
             {
-                log.ErrorFormat(message, args);
+
+                log.Error(message, ex);
             }
         }
         /// <summary>
@@ -80,7 +89,11 @@ namespace MyOperation.Common_Method.Log_Operation
         {
             if (log.IsDebugEnabled)
             {
-                log.DebugFormat(message, args);
+                for (int i = 0; i < args.Length; i++)
+                {
+                    message = message + "\n" + "             " + args[i];
+                }
+                log.Debug(message);
             }
         }
         /// <summary>
@@ -88,11 +101,11 @@ namespace MyOperation.Common_Method.Log_Operation
         /// </summary>
         /// <param name="message"></param>
         /// <param name="args"></param>
-        public static void WriteFatalLog(string message, params object[] args)
+        public static void WriteFatalLog(string message, Exception ex)
         {
             if (log.IsFatalEnabled)
             {
-                log.FatalFormat(message, args);
+                log.Fatal(message, ex);
             }
         }
     }

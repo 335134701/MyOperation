@@ -94,6 +94,7 @@
     </Compile>
     <None Include="Configuration\Log\Log4net.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Configuration\Log\Log4net_Console_01.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -111,9 +112,7 @@
     </None>
     <None Include="Configuration\Log\Log4net_WriteLogFile_02.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Log4net.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
