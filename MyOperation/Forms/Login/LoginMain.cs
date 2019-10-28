@@ -42,7 +42,7 @@ namespace MyOperation.Forms.Login
         /// <param name="e"></param>
         private void TOP_MouseDown(object sender, MouseEventArgs e)
         {
-            this.loginMain_Bean.LoginMain_Method.LoginMain_Form_Move(this);
+           // this.loginMain_Bean.LoginMain_Method.LoginMain_Form_Move(this);
         }
         /// <summary>
         /// 鼠标按下事件触发执行方法
@@ -52,7 +52,7 @@ namespace MyOperation.Forms.Login
         /// <param name="e"></param>
         private void Bottom_MouseDown(object sender, MouseEventArgs e)
         {
-            this.loginMain_Bean.LoginMain_Method.LoginMain_Form_Move(this);
+            //this.loginMain_Bean.LoginMain_Method.LoginMain_Form_Move(this);
         }
         /// <summary>
         /// 鼠标按下事件触发执行方法
@@ -62,7 +62,7 @@ namespace MyOperation.Forms.Login
         /// <param name="e"></param>
         private void TOP_Left_MouseDown(object sender, MouseEventArgs e)
         {
-            this.loginMain_Bean.LoginMain_Method.LoginMain_Form_Move(this);
+            //this.loginMain_Bean.LoginMain_Method.LoginMain_Form_Move(this);
         }
         /// <summary>
         /// 鼠标按下事件触发执行方法
@@ -72,7 +72,7 @@ namespace MyOperation.Forms.Login
         /// <param name="e"></param>
         private void TOP_Right_MouseDown(object sender, MouseEventArgs e)
         {
-            this.loginMain_Bean.LoginMain_Method.LoginMain_Form_Move(this);
+           // this.loginMain_Bean.LoginMain_Method.LoginMain_Form_Move(this);
         }
 
         #region  TOP按钮触发事件处理实现

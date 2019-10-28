@@ -29,7 +29,6 @@ using System.Collections.Generic;
 using System.IO;
 using MyOperation.Forms.Init;
 using MyOperation.Common_Method.Files_Operation;
-using MyOperation.Forms_Methods.Init_Methods;
 using System.Runtime.InteropServices;
 using System.Timers;
 
@@ -46,23 +45,12 @@ namespace MyOperation.Beans.Forms_Beans
         private Init init;
         //申明定时器对象
         private Timer timerOne;
+        //申明定时器执行时间ms，并赋初值
         private int timerOneInterval = 2500;
         //申明委托事件，处理定时器关闭窗体事件
         public delegate void Init_Close();
 
-
-
-        public Init_Bean()
-        {
-            //TimerOne对象在Init_Method中使用，因此需要先实例化TimerOne，再实例化Init_Method
-            TimerOne = new Timer();
-            Photos_Operation = new Photos_Operation();
-            path_Operation = new Path_Operation();
-            if (TimerOne != null) Init_Method = new Init_Method(this);
-            else { TimerOne = new Timer(); Init_Method = new Init_Method(this); }
-            All_Init_Photos = new List<FileInfo>();
-            Init = new Init(this);
-        }
+        public Init_Bean() { }
 
         #region 无边框拖动效果参数定义及函数声明
         private const int wM_SYSCOMMAND = 0x0112;
@@ -76,7 +64,7 @@ namespace MyOperation.Beans.Forms_Beans
         [DllImport("user32.dll")]
         public static extern bool SendMessage(IntPtr hwnd, int wMsg, int wParam, int lParam);
         #endregion
-        
+
         /// <summary>
         /// init对象的GET(),SET()方法
         /// </summary>

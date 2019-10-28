@@ -23,44 +23,69 @@
 /// =================================
 ///
 /// ***********************************************************************
-using MyOperation.Beans.Forms_Beans;
-using MyOperation.Common_Method.Log_Operation;
+
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using MyOperation.Beans.Forms_Beans;
+using MyOperation.Common_Method.Log_Operation;
+using MyOperation.Forms.Init;
 
 namespace MyOperation
 {
     public class Program_Main
     {
-        private Init_Bean init_Bean;
-        private LoginMain_Bean loginMain_Bean;
+        //申明程序开始处理执行需要定义的类的集合
+        private Program_Main_Bean program_Main_Bean;
+        /// <summary>
+        /// Program_Main构造方法
+        /// </summary>
         public Program_Main()
         {
-
+            program_Main_Bean = new Program_Main_Bean();
         }
         /// <summary>
         /// 程序窗体调用处理程序进程
         /// </summary>
         public void Program_Process()
         {
-          
-            String status=this.Transfer_Init_Form();
-            if (!status.Equals("OK")) return;
-       
-            status = this.Transfer_Login_Form();
+
+            String Forms_Status = this.Transfer_Init_Form();
+
+            if (!Forms_Status.Equals("OK")) return;
+
+            Forms_Status = this.Transfer_Login_Form();
         }
         /// <summary>
         ///Init窗体执行
         /// </summary>
         public String Transfer_Init_Form()
         {
-          
-            init_Bean = new Init_Bean();
-           
-            Application.Run(init_Bean.Init);
-           
-            return init_Bean.Init.DialogResult.ToString();
+            try
+            {
+                this.program_Main_Bean.Init_Bean = new Init_Bean();
+                if (this.program_Main_Bean.Init_Bean != null)
+                {
+                    this.program_Main_Bean.Init_Bean.Init_Method = new Init_Method();
+                    Console.WriteLine(this.program_Main_Bean.Init_Bean.Init_Method);
+                    //执行实例化Init窗体中所有申明对象
+                    //this.program_Main_Bean.Init_Bean.Init_Method.Instantiation_Bean_Object();
+                    this.program_Main_Bean.Init_Bean.Init = new Init();
+                    //运行Init窗体
+                    Application.Run(this.program_Main_Bean.Init_Bean.Init);
+                }
+                else {
+
+                    //提示错误。。。。。。。。。。。。。。。。。。。
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+            //返回Init窗体结束状态
+            return program_Main_Bean.Init_Bean.Init.DialogResult.ToString();
         }
         /// <summary>
         /// Login窗体逻辑执行
@@ -68,12 +93,12 @@ namespace MyOperation
         /// <returns></returns>
         public String Transfer_Login_Form()
         {
-           
-            loginMain_Bean = new LoginMain_Bean();
-          
-            Application.Run(loginMain_Bean.LoginMain);
-           
-            return loginMain_Bean.LoginMain.DialogResult.ToString();
+
+            program_Main_Bean.LoginMain_Bean = new LoginMain_Bean();
+
+            Application.Run(program_Main_Bean.LoginMain_Bean.LoginMain);
+
+            return program_Main_Bean.LoginMain_Bean.LoginMain.DialogResult.ToString();
         }
     }
 }

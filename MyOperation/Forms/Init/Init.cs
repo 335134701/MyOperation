@@ -11,11 +11,15 @@ namespace MyOperation.Forms.Init
         private Init_Bean init_Bean;
 
         #region 窗体绘制
-        public Init(Init_Bean init_Bean)
+        public Init()
         {
             InitializeComponent();
             //管理对象赋值
-            this.init_Bean = init_Bean;
+        }
+        public Init(Init_Bean init_Bean)
+        {
+            InitializeComponent();
+            if (init_Bean != null) { this.init_Bean = init_Bean; }   
         }
         /// <summary>
         /// Init窗体在绘制过程中加载函数
@@ -25,9 +29,9 @@ namespace MyOperation.Forms.Init
         private void Init_Load(object sender, EventArgs e)
         {
             //设置背景图片
-            this.Background.BackgroundImage = Image.FromFile(this.init_Bean.Init_Method.Get_Index_PhotoPath().ToString());
+            //this.Background.BackgroundImage = Image.FromFile(this.init_Bean.Init_Method.Get_Index_PhotoPath().ToString());
             //启动定时器
-            this.init_Bean.Init_Method.Start_TimerOne();
+            //this.init_Bean.Init_Method.Start_TimerOne();
         }
         #endregion
         /// <summary>
@@ -40,7 +44,5 @@ namespace MyOperation.Forms.Init
         {
             this.init_Bean.Init_Method.Init_Form_Move(this);
         }
-
-
     }
 }

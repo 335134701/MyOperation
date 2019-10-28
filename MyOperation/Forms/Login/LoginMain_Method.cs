@@ -2,16 +2,16 @@
 ///
 /// =================================
 /// 创 建 者    ：congz
-/// 创建日期    ：2019/6/10 20:38:47
+/// 创建日期    ：2019/10/28 19:28:01
 /// 邮箱        ：335134701@qq.com
 /// =================================
-/// 项目名称    ：MyOperation.Forms_Methods.Login
+/// 项目名称    ：MyOperation.Forms.Login
 /// 项目描述    ：
 /// 文件名称    ：LoginMain_Method.cs
 /// 类 名 称    ：LoginMain_Method
-/// 类 描 述    ：处理LoginMain窗体中的操作方法
+/// 类 描 述    ：
 /// 所在的域    ：ZC-PC
-/// 命名空间    ：MyOperation.Forms_Methods.Login
+/// 命名空间    ：MyOperation.Forms.Login
 /// 机器名称    ：ZC-PC
 /// CLR 版本    ：4.0.30319.42000
 /// 版 本 号    ：v1.0.0.0
@@ -24,13 +24,21 @@
 ///
 /// ***********************************************************************
 using MyOperation.Beans.Forms_Beans;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
-namespace MyOperation.Forms_Methods.Login
+namespace MyOperation.Forms.Login
 {
     public class LoginMain_Method
     {
         private LoginMain_Bean loginMain_Bean;
+        /// <summary>
+        /// 无参构造函数
+        /// </summary>
+        public LoginMain_Method() { }
         public LoginMain_Method(LoginMain_Bean loginMain_Bean)
         {
             this.loginMain_Bean = loginMain_Bean;

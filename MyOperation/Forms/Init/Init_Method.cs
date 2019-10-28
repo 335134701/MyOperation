@@ -2,16 +2,16 @@
 ///
 /// =================================
 /// 创 建 者    ：congz
-/// 创建日期    ：2019/6/9 11:37:49
+/// 创建日期    ：2019/10/28 19:17:24
 /// 邮箱        ：335134701@qq.com
 /// =================================
-/// 项目名称    ：MyOperation.Forms_Methods.Init_Methods
+/// 项目名称    ：MyOperation.Forms.Init
 /// 项目描述    ：
 /// 文件名称    ：Init_Method.cs
 /// 类 名 称    ：Init_Method
-/// 类 描 述    ：Init窗体界面中普通处理方法
+/// 类 描 述    ：
 /// 所在的域    ：ZC-PC
-/// 命名空间    ：MyOperation.Forms_Methods.Init_Methods
+/// 命名空间    ：MyOperation.Forms.Init
 /// 机器名称    ：ZC-PC
 /// CLR 版本    ：4.0.30319.42000
 /// 版 本 号    ：v1.0.0.0
@@ -24,22 +24,50 @@
 ///
 /// ***********************************************************************
 using System;
-using System.Diagnostics;
+using System.Collections.Generic;
+using System.IO;
 using System.Timers;
 using System.Windows.Forms;
 using MyOperation.Beans.Forms_Beans;
+using MyOperation.Common_Method.Files_Operation;
 using MyOperation.Forms.Init;
 
-namespace MyOperation.Forms_Methods.Init_Methods
+namespace MyOperation.Forms.Init
 {
     public class Init_Method
     {
-        private Init_Bean init_Bean;
+        /// <summary>
+        /// 无参构造函数
+        /// </summary>
 
-        public Init_Method(Init_Bean init_Bean)
+        private Init_Bean init_Bean;
+        public Init_Method() { }
+        /// <summary>
+        /// 实例化Bean对象中定义的所有申明对象及逻辑结构
+        /// </summary>
+        /// <returns></returns>
+        public Boolean Instantiation_Bean_Object(Init_Bean init_Bean)
         {
             this.init_Bean = init_Bean;
+            Boolean Object_status = false;
+            try
+            {
+                //TimerOne对象在Init_Method中使用，因此需要先实例化TimerOne，再实例化Init_Method
+                this.init_Bean.TimerOne = new System.Timers.Timer();
+                this.init_Bean.Photos_Operation = new Photos_Operation();
+                this.init_Bean.Path_Operation = new Path_Operation();
+                this.init_Bean.All_Init_Photos = new List<FileInfo>();
+                Object_status = true;
+            }
+            catch (Exception ex)
+            {
+                Object_status = false;
+                //提示错误信息
+                throw ex;
+            }
+            return Object_status;
         }
+
         /// <summary>
         /// 处理窗体取消边框后的移动问题
         /// </summary>
@@ -88,7 +116,7 @@ namespace MyOperation.Forms_Methods.Init_Methods
             //初始化定时器1
             this.Init_TimerOne();
             //开启定时器1
-            this.init_Bean.TimerOne.Enabled=true;
+            this.init_Bean.TimerOne.Enabled = true;
         }
         /// <summary>
         /// 定时器定时执行方法
@@ -96,13 +124,13 @@ namespace MyOperation.Forms_Methods.Init_Methods
         /// <param name="source"></param>
         /// <param name="e"></param>
         public void TimerOne_Method(object source, ElapsedEventArgs e)
-        { 
+        {
             //释放定时器1
             this.init_Bean.TimerOne.Close();
             //由于定时器线程与UI线程不在同一线程之中故需使用委托的方式对UI线程执行操作
             //control.invoke(参数delegate)方法:在拥有此控件的基础窗口句柄的线程上执行指定的委托。
             //control.begininvoke(参数delegate)方法:在创建控件的基础句柄所在线程上异步执行指定委托。
-            this.init_Bean.Init.BeginInvoke(new Init_Bean.Init_Close(Init_Form_Close));   
+            this.init_Bean.Init.BeginInvoke(new Init_Bean.Init_Close(Init_Form_Close));
         }
         /// <summary>
         /// 由于定时器与窗体不是同一个线程，暂时无法在定时器执行方法中关闭Init窗体，故采用委托的方式关闭窗体
@@ -114,6 +142,6 @@ namespace MyOperation.Forms_Methods.Init_Methods
             //关闭Init窗体
             this.init_Bean.Init.Close();
         }
-       
     }
+
 }
