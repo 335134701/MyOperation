@@ -75,7 +75,7 @@ namespace MyOperation
                     Application.Run(this.program_Main_Bean.Init_Bean.Init);
                 }
                 else {
-
+                    MessageBox.Show("窗体运行失败。。。。。。。");
                     //提示错误。。。。。。。。。。。。。。。。。。。
                 }
             }
