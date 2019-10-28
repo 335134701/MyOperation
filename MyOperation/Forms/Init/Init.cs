@@ -40,7 +40,5 @@ namespace MyOperation.Forms.Init
         {
             this.init_Bean.Init_Method.Init_Form_Move(this);
         }
-
-
     }
 }

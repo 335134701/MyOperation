@@ -33,11 +33,11 @@ namespace MyOperation
 {
     public class Program_Main
     {
-        private Init_Bean init_Bean;
-        private LoginMain_Bean loginMain_Bean;
+        
+        private Program_Main_Bean program_Main_Bean;
         public Program_Main()
         {
-
+            program_Main_Bean = new Program_Main_Bean();
         }
         /// <summary>
         /// 程序窗体调用处理程序进程
@@ -45,22 +45,21 @@ namespace MyOperation
         public void Program_Process()
         {
           
-            String status=this.Transfer_Init_Form();
-            if (!status.Equals("OK")) return;
-       
-            status = this.Transfer_Login_Form();
+            String Forms_Status=this.Transfer_Init_Form();
+            if (!Forms_Status.Equals("OK")) return;
+            Forms_Status = this.Transfer_Login_Form();
         }
         /// <summary>
         ///Init窗体执行
         /// </summary>
         public String Transfer_Init_Form()
         {
-          
-            init_Bean = new Init_Bean();
+
+            program_Main_Bean.Init_Bean = new Init_Bean();
            
-            Application.Run(init_Bean.Init);
-           
-            return init_Bean.Init.DialogResult.ToString();
+            Application.Run(program_Main_Bean.Init_Bean.Init);
+
+            return program_Main_Bean.Init_Bean.Init.DialogResult.ToString();
         }
         /// <summary>
         /// Login窗体逻辑执行
@@ -68,12 +67,12 @@ namespace MyOperation
         /// <returns></returns>
         public String Transfer_Login_Form()
         {
-           
-            loginMain_Bean = new LoginMain_Bean();
+
+            program_Main_Bean.LoginMain_Bean = new LoginMain_Bean();
           
-            Application.Run(loginMain_Bean.LoginMain);
+            Application.Run(program_Main_Bean.LoginMain_Bean.LoginMain);
            
-            return loginMain_Bean.LoginMain.DialogResult.ToString();
+            return program_Main_Bean.LoginMain_Bean.LoginMain.DialogResult.ToString();
         }
     }
 }

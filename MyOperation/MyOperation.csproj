@@ -51,8 +51,11 @@
   <ItemGroup>
     <Compile Include="Beans\Forms_Beans\Init_Bean.cs" />
     <Compile Include="Beans\Forms_Beans\LoginMain_Bean.cs" />
+    <Compile Include="Beans\Forms_Beans\Program_Main_Bean.cs" />
     <Compile Include="Common_Method\Files_Operation\Path_Operation.cs" />
     <Compile Include="Common_Method\Files_Operation\Photos_Operation.cs" />
+    <Compile Include="Common_Method\JDBC_Operation\Basic_Operation.cs" />
+    <Compile Include="Common_Method\JDBC_Operation\JDBC_Information.cs" />
     <Compile Include="Common_Method\Log_Operation\Log4net_Console_01.cs" />
     <Compile Include="Common_Method\Log_Operation\Log4net_Console_02.cs" />
     <Compile Include="Common_Method\Log_Operation\Log4net_MySQL.cs" />
@@ -125,7 +128,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common_Method\JDBC_Operation\" />
     <Folder Include="Forms_Methods\Form_Common_Methods\" />
   </ItemGroup>
   <ItemGroup>
