@@ -28,8 +28,7 @@ using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 using MyOperation.Beans.Forms_Beans;
-using MyOperation.Common_Method.Log_Operation;
-using MyOperation.Forms.Init;
+using MyOperation.Forms.Guide_Forms;
 
 namespace MyOperation
 {
@@ -49,43 +48,26 @@ namespace MyOperation
         /// </summary>
         public void Program_Process()
         {
+            //如果Init窗体执行失败则程序退出
+            if (!Transfer_Init_Form()) { return; }
 
-            String Forms_Status = this.Transfer_Init_Form();
-
-            if (!Forms_Status.Equals("OK")) return;
-
-            Forms_Status = this.Transfer_Login_Form();
         }
         /// <summary>
         ///Init窗体执行
         /// </summary>
-        public String Transfer_Init_Form()
+        public Boolean Transfer_Init_Form()
         {
             try
             {
-                this.program_Main_Bean.Init_Bean = new Init_Bean();
-                if (this.program_Main_Bean.Init_Bean != null)
-                {
-                    this.program_Main_Bean.Init_Bean.Init_Method = new Init_Method();
-                    Console.WriteLine(this.program_Main_Bean.Init_Bean.Init_Method);
-                    //执行实例化Init窗体中所有申明对象
-                    //this.program_Main_Bean.Init_Bean.Init_Method.Instantiation_Bean_Object();
-                    this.program_Main_Bean.Init_Bean.Init = new Init();
-                    //运行Init窗体
-                    Application.Run(this.program_Main_Bean.Init_Bean.Init);
-                }
-                else {
-                    MessageBox.Show("窗体运行失败。。。。。。。");
-                    //提示错误。。。。。。。。。。。。。。。。。。。
-                }
+                this.program_Main_Bean.Init_Guide = new Init_Guide();
             }
-            catch (Exception ex)
+            catch (Exception Ex)
             {
-                Console.WriteLine(ex.Message);
-                throw ex;
+                MessageBox.Show("Init_Guide object instantiation failed!");
+                throw Ex;
             }
             //返回Init窗体结束状态
-            return program_Main_Bean.Init_Bean.Init.DialogResult.ToString();
+            return Judgment_Form_Status(this.program_Main_Bean.Init_Guide.Init_Guide_Start());
         }
         /// <summary>
         /// Login窗体逻辑执行
@@ -99,6 +81,23 @@ namespace MyOperation
             Application.Run(program_Main_Bean.LoginMain_Bean.LoginMain);
 
             return program_Main_Bean.LoginMain_Bean.LoginMain.DialogResult.ToString();
+        }
+
+
+
+        /// <summary>
+        /// 判断窗体结束后状态值
+        /// </summary>
+        /// <param name="status">窗体结束返回值</param>
+        /// <returns></returns>
+        public Boolean Judgment_Form_Status(String Form_Over_Status)
+        {
+            Boolean flag = false;
+            if (Form_Over_Status.Equals("OK"))
+            {
+                flag = true;
+            }
+            return flag;
         }
     }
 }

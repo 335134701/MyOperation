@@ -23,18 +23,50 @@
 /// =================================
 ///
 /// ***********************************************************************
+using MyOperation.Beans.Forms_Beans;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace MyOperation.Forms.Init
 {
     public class Init_Event
     {
+        private Init_Bean init_Bean;
         /// <summary>
         /// 无参构造函数
         /// </summary>
         public Init_Event() { }
+        public Init_Event(Init_Bean init_Bean) { this.init_Bean = init_Bean; }
+
+        public Init_Bean Init_Bean { get => init_Bean; set => init_Bean = value; }
+        /// <summary>
+        /// Init窗体在绘制过程中加载函数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Init_Load(object sender, EventArgs e)
+        {
+            //设置背景图片
+            //this.Background.BackgroundImage = Image.FromFile(this.init_Bean.Init_Method.Get_Index_PhotoPath().ToString());
+            //启动定时器
+            //this.init_Bean.Init_Method.Start_TimerOne();
+            Console.WriteLine("111333311");
+        }
+        /// <summary>
+        /// 鼠标按下事件触发执行方法
+        /// 主要用于无边框窗体移动的实现
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Background_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (this.init_Bean != null)
+            {
+                this.init_Bean.Init_Method.Init_Form_Move(this.init_Bean.Init);
+            }
+        }
     }
 }

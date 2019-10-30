@@ -17,6 +17,7 @@ namespace MyOperation
             Application.SetCompatibleTextRenderingDefault(false);
             //Trace.WriteLine(DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-ffff")+"：Program_Main创建");
             //创建Program_Main对象
+            LogHelper.WriteDebugLog("111111111111");
             Program_Main program_Main = new Program_Main();
             program_Main.Program_Process();
 

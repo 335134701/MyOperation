@@ -8,18 +8,18 @@ namespace MyOperation.Forms.Init
 {
     public partial class Init : Form
     {
-        private Init_Bean init_Bean;
+        private Init_Event init_Event;
 
         #region 窗体绘制
-        public Init()
+        public Init() { InitializeComponent(); }
+        public Init(Init_Event init_Event)
         {
             InitializeComponent();
-            //管理对象赋值
-        }
-        public Init(Init_Bean init_Bean)
-        {
-            InitializeComponent();
-            if (init_Bean != null) { this.init_Bean = init_Bean; }   
+            if (init_Event != null)
+            {
+                this.init_Event = init_Event;
+                this.Background.MouseDown += new System.Windows.Forms.MouseEventHandler(this.init_Event.Background_MouseDown);
+            }
         }
         /// <summary>
         /// Init窗体在绘制过程中加载函数
@@ -34,15 +34,5 @@ namespace MyOperation.Forms.Init
             //this.init_Bean.Init_Method.Start_TimerOne();
         }
         #endregion
-        /// <summary>
-        /// 鼠标按下事件触发执行方法
-        /// 主要用于无边框窗体移动的实现
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void Background_MouseDown(object sender, MouseEventArgs e)
-        {
-            this.init_Bean.Init_Method.Init_Form_Move(this);
-        }
     }
 }

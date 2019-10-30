@@ -56,12 +56,8 @@
     <Compile Include="Common_Method\Files_Operation\Photos_Operation.cs" />
     <Compile Include="Common_Method\JDBC_Operation\Basic_Operation.cs" />
     <Compile Include="Common_Method\JDBC_Operation\JDBC_Information.cs" />
-    <Compile Include="Common_Method\Log_Operation\Log4net_Console_01.cs" />
-    <Compile Include="Common_Method\Log_Operation\Log4net_Console_02.cs" />
-    <Compile Include="Common_Method\Log_Operation\Log4net_MySQL.cs" />
-    <Compile Include="Common_Method\Log_Operation\Log4net_WriteLogFile_01.cs" />
-    <Compile Include="Common_Method\Log_Operation\Log4net_WriteLogFile_02.cs" />
     <Compile Include="Common_Method\Log_Operation\LogHelper.cs" />
+    <Compile Include="Forms\Guide_Forms\Init_Guide.cs" />
     <Compile Include="Forms\Init\Init.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,24 +94,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Configuration\Log\Log4net.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Configuration\Log\Log4net_Console_01.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Configuration\Log\Log4net_Console_02.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Configuration\Log\Log4net_MySQL.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Configuration\Log\Log4net_WriteLogFile_01.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Configuration\Log\Log4net_WriteLogFile_02.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>

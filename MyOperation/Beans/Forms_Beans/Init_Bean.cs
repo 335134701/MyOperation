@@ -36,12 +36,15 @@ namespace MyOperation.Beans.Forms_Beans
 {
     public class Init_Bean
     {
+        #region 变量，对象申明
         //图片相对路径前缀
         private String imagesDir = "\\Images\\";
         private List<FileInfo> all_Init_Photos;
         private Photos_Operation photos_Operation;
         private Path_Operation path_Operation;
         private Init_Method init_Method;
+        private Init_Event init_Event;
+        //申明Init窗体对象
         private Init init;
         //申明定时器对象
         private Timer timerOne;
@@ -49,8 +52,11 @@ namespace MyOperation.Beans.Forms_Beans
         private int timerOneInterval = 2500;
         //申明委托事件，处理定时器关闭窗体事件
         public delegate void Init_Close();
+        #endregion
 
+        #region 构造方法
         public Init_Bean() { }
+        #endregion
 
         #region 无边框拖动效果参数定义及函数声明
         private const int wM_SYSCOMMAND = 0x0112;
@@ -65,6 +71,8 @@ namespace MyOperation.Beans.Forms_Beans
         public static extern bool SendMessage(IntPtr hwnd, int wMsg, int wParam, int lParam);
         #endregion
 
+
+        #region 申明变量的GET(),SET()方法
         /// <summary>
         /// init对象的GET(),SET()方法
         /// </summary>
@@ -76,6 +84,7 @@ namespace MyOperation.Beans.Forms_Beans
         public List<FileInfo> All_Init_Photos { get => all_Init_Photos; set => all_Init_Photos = value; }
         public Timer TimerOne { get => timerOne; set => timerOne = value; }
         public int TimerOneInterval { get => timerOneInterval; set => timerOneInterval = value; }
-
+        public Init_Event Init_Event { get => init_Event; set => init_Event = value; }
+        #endregion
     }
 }
