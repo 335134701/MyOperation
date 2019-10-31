@@ -26,6 +26,7 @@
 using MyOperation.Beans.Forms_Beans;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -45,15 +46,17 @@ namespace MyOperation.Forms.Init
         /// <summary>
         /// Init窗体在绘制过程中加载函数
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void Init_Load(object sender, EventArgs e)
+        public void Init_Event_Load()
         {
-            //设置背景图片
-            //this.Background.BackgroundImage = Image.FromFile(this.init_Bean.Init_Method.Get_Index_PhotoPath().ToString());
+            String BackgroundImagePath = this.init_Bean.Init_Method.Get_Index_PhotoPath().ToString();
+            if (!BackgroundImagePath.Equals(null))
+            {
+                //设置背景图片
+                this.init_Bean.Init.Background.BackgroundImageLayout = ImageLayout.Stretch;
+                this.init_Bean.Init.Background.BackgroundImage = Image.FromFile(BackgroundImagePath);
+            }
             //启动定时器
-            //this.init_Bean.Init_Method.Start_TimerOne();
-            Console.WriteLine("111333311");
+            this.init_Bean.Init_Method.Start_TimerOne();
         }
         /// <summary>
         /// 鼠标按下事件触发执行方法

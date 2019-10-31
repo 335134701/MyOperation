@@ -111,6 +111,7 @@
   <ItemGroup>
     <Content Include="Images\Ico_01.ico" />
     <Content Include="Images\Init_01.jpg" />
+    <Content Include="Images\Init_02.jpg" />
     <Content Include="Images\LoginMain_01_Close.png" />
     <Content Include="Images\LoginMain_01_Min.png" />
     <Content Include="Images\LoginMain_02.jpeg" />

@@ -36,11 +36,10 @@ namespace MyOperation.Forms.Init
 {
     public class Init_Method
     {
+        private Init_Bean init_Bean;
         /// <summary>
         /// 无参构造函数
         /// </summary>
-
-        private Init_Bean init_Bean;
         public Init_Method() { }
         public Init_Method(Init_Bean init_Bean) { this.init_Bean = init_Bean; }
         public Init_Bean Init_Bean { get => init_Bean; set => init_Bean = value; }
@@ -62,36 +61,32 @@ namespace MyOperation.Forms.Init
         /// <returns></returns>
         public String Get_Index_PhotoPath()
         {
-
+            String Init_background_Photopath = null;
             this.Init_Bean.All_Init_Photos = this.Init_Bean.Photos_Operation.Get_AllPhotos_Path(
                 this.Init_Bean.Photos_Operation.All_Serch_Photos(
                     this.Init_Bean.Path_Operation.Update_Path(1) + this.Init_Bean.ImagesDir, new String[] { "jpg", "jpeg" })
                     , "Init_");
             //生成随机数
             Random rd = new Random();
+            //判断能否获取到Init图片集合，如果不能获取，则结束函数
+            if (this.Init_Bean.All_Init_Photos.Count < 0) { return Init_background_Photopath; }
             //获取生成的随机数对应的图片路径
-            String path = this.Init_Bean.Photos_Operation.Get_Photo_Path(rd.Next(1, this.Init_Bean.All_Init_Photos.Count), this.Init_Bean.All_Init_Photos);
-            return path;
+            Init_background_Photopath = this.Init_Bean.Photos_Operation.Get_Photo_Path(rd.Next(1, this.Init_Bean.All_Init_Photos.Count+1), this.Init_Bean.All_Init_Photos);
+            return Init_background_Photopath;
         }
-        /// <summary>
-        /// 初始化定时器1
-        /// </summary>
-        public void Init_TimerOne()
-        {
-            //设置定时器周期执行间隔时间，单位毫秒
-            this.Init_Bean.TimerOne.Interval = this.Init_Bean.TimerOneInterval;
-            //指定定时器执行的方法
-            this.Init_Bean.TimerOne.Elapsed += new ElapsedEventHandler(TimerOne_Method);
-            //设置定时器是否周期执行
-            this.Init_Bean.TimerOne.AutoReset = false;
-        }
+
         /// <summary>
         /// 启动定时器1
         /// </summary>
         public void Start_TimerOne()
         {
             //初始化定时器1
-            this.Init_TimerOne();
+            //设置定时器周期执行间隔时间，单位毫秒
+            this.Init_Bean.TimerOne.Interval = this.Init_Bean.TimerOneInterval;
+            //指定定时器执行的方法
+            this.Init_Bean.TimerOne.Elapsed += new ElapsedEventHandler(TimerOne_Method);
+            //设置定时器是否周期执行
+            this.Init_Bean.TimerOne.AutoReset = false;
             //开启定时器1
             this.Init_Bean.TimerOne.Enabled = true;
         }

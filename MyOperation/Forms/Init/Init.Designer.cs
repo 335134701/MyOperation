@@ -55,7 +55,6 @@
             this.Background.Name = "Background";
             this.Background.Size = new System.Drawing.Size(578, 356);
             this.Background.TabIndex = 0;
-            //this.Background.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Background_MouseDown);
             // 
             // Init
             // 
@@ -73,7 +72,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Init";
             this.TopMost = true;
-            //this.Load += new System.EventHandler(this.Init_Load);
+            this.Load += new System.EventHandler(this.Init_Load);
             this.Border.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -82,6 +81,6 @@
         #endregion
 
         private System.Windows.Forms.Panel Border;
-        private System.Windows.Forms.Panel Background;
+        protected internal System.Windows.Forms.Panel Background;
     }
 }

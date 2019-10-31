@@ -1,8 +1,7 @@
 ﻿using System;
-
 using System.Drawing;
 using System.Windows.Forms;
-using MyOperation.Beans.Forms_Beans;
+
 
 namespace MyOperation.Forms.Init
 {
@@ -15,6 +14,7 @@ namespace MyOperation.Forms.Init
         public Init(Init_Event init_Event)
         {
             InitializeComponent();
+           
             if (init_Event != null)
             {
                 this.init_Event = init_Event;
@@ -28,10 +28,11 @@ namespace MyOperation.Forms.Init
         /// <param name="e"></param>
         private void Init_Load(object sender, EventArgs e)
         {
-            //设置背景图片
-            //this.Background.BackgroundImage = Image.FromFile(this.init_Bean.Init_Method.Get_Index_PhotoPath().ToString());
-            //启动定时器
-            //this.init_Bean.Init_Method.Start_TimerOne();
+            if (init_Event != null)
+            {
+                //调用Init_Event_Load方法执行Init_Load操作
+                this.init_Event.Init_Event_Load();
+            }
         }
         #endregion
     }

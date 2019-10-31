@@ -28,6 +28,7 @@ using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 using MyOperation.Beans.Forms_Beans;
+using MyOperation.Common_Method.Log_Operation;
 using MyOperation.Forms.Guide_Forms;
 
 namespace MyOperation
@@ -49,7 +50,11 @@ namespace MyOperation
         public void Program_Process()
         {
             //如果Init窗体执行失败则程序退出
-            if (!Transfer_Init_Form()) { return; }
+            LogHelper.WriteInfoLog("Transfer_Init_Form method starts executing!");
+            if (!Transfer_Init_Form()) {
+                LogHelper.WriteWarnLog("Transfer_Init_Form method failed to execute, program exited!");
+                return;
+            }
 
         }
         /// <summary>
@@ -59,13 +64,16 @@ namespace MyOperation
         {
             try
             {
+                LogHelper.WriteInfoLog("Init_Guide object starts instantiation!");
                 this.program_Main_Bean.Init_Guide = new Init_Guide();
             }
             catch (Exception Ex)
             {
+                LogHelper.WriteFatalLog("Init_Guide object initialization failed", Ex);
                 MessageBox.Show("Init_Guide object instantiation failed!");
                 throw Ex;
             }
+            LogHelper.WriteInfoLog("The Init_Guide_Start method starts executing!");
             //返回Init窗体结束状态
             return Judgment_Form_Status(this.program_Main_Bean.Init_Guide.Init_Guide_Start());
         }

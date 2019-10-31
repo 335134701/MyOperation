@@ -73,6 +73,16 @@ namespace MyOperation.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Init_02 {
+            get {
+                object obj = ResourceManager.GetObject("Init_02", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap LoginMain_01_Close {
             get {
                 object obj = ResourceManager.GetObject("LoginMain_01_Close", resourceCulture);
