@@ -71,7 +71,6 @@ namespace MyOperation.Beans.Forms_Beans
         public static extern bool SendMessage(IntPtr hwnd, int wMsg, int wParam, int lParam);
         #endregion
 
-
         #region 申明变量的GET(),SET()方法
         /// <summary>
         /// init对象的GET(),SET()方法

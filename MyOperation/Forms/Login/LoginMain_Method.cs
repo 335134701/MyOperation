@@ -34,15 +34,21 @@ namespace MyOperation.Forms.Login
 {
     public class LoginMain_Method
     {
-        private LoginMain_Bean loginMain_Bean;
+        public LoginMain_Bean loginMain_Bean;
+
+        #region 构造函数
         /// <summary>
         /// 无参构造函数
         /// </summary>
         public LoginMain_Method() { }
-        public LoginMain_Method(LoginMain_Bean loginMain_Bean)
-        {
-            this.loginMain_Bean = loginMain_Bean;
-        }
+        /// <summary>
+        /// 有参数构造函数
+        /// </summary>
+        /// <param name="loginMain_Bean"></param>
+        public LoginMain_Method(LoginMain_Bean loginMain_Bean) { if (loginMain_Bean != null) { this.loginMain_Bean = loginMain_Bean; } }
+        #endregion
+
+
 
         /// <summary>
         /// 处理窗体取消边框后的移动问题

@@ -33,12 +33,11 @@ namespace MyOperation.Beans.Forms_Beans
     {
         private LoginMain loginMain;
         private LoginMain_Method loginMain_Method;
+        private LoginMain_Event loginMain_Event;
 
-        public LoginMain_Bean()
-        {
-            LoginMain = new LoginMain(this);
-            loginMain_Method = new LoginMain_Method(this);
-        }
+        #region 构造方法
+        public LoginMain_Bean() { }
+        #endregion
 
         #region 无边框拖动效果参数定义及函数声明
         private const int wM_SYSCOMMAND = 0x0112;
@@ -56,7 +55,10 @@ namespace MyOperation.Beans.Forms_Beans
         public static int HTCAPTION => hTCAPTION;
         #endregion
 
+        #region 申明变量的GET(),SET()方法
         public LoginMain LoginMain { get => loginMain; set => loginMain = value; }
         public LoginMain_Method LoginMain_Method { get => loginMain_Method; set => loginMain_Method = value; }
+        public LoginMain_Event LoginMain_Event { get => loginMain_Event; set => loginMain_Event = value; }
+        #endregion
     }
 }

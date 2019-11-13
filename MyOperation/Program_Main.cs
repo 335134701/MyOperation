@@ -49,12 +49,25 @@ namespace MyOperation
         /// </summary>
         public void Program_Process()
         {
+            /*
             //如果Init窗体执行失败则程序退出
-            LogHelper.WriteInfoLog("Transfer_Init_Form method starts executing!");
+            LogHelper.WriteInfoLog("Transfer_Init_Form() method starts executing!");
             if (!Transfer_Init_Form()) {
-                LogHelper.WriteWarnLog("Transfer_Init_Form method failed to execute, program exited!");
+                LogHelper.WriteWarnLog("Transfer_Init_Form() method failed to execute, program exited!");
                 return;
             }
+            */
+            
+            //如果Login相关窗体执行失败则程序退出
+            LogHelper.WriteInfoLog("Transfer_LoginMain_Form() method starts executing!");
+            if (!Transfer_LoginMain_Form())
+            {
+                LogHelper.WriteWarnLog("Transfer_LoginMain_Form() method failed to execute, program exited!");
+                return;
+            }
+            
+            //结束进程中的程序
+            Application.Exit();
 
         }
         /// <summary>
@@ -73,7 +86,7 @@ namespace MyOperation
                 MessageBox.Show("Init_Guide object instantiation failed!");
                 throw Ex;
             }
-            LogHelper.WriteInfoLog("The Init_Guide_Start method starts executing!");
+            LogHelper.WriteInfoLog("The Init_Guide_Start() method starts executing!");
             //返回Init窗体结束状态
             return Judgment_Form_Status(this.program_Main_Bean.Init_Guide.Init_Guide_Start());
         }
@@ -81,14 +94,20 @@ namespace MyOperation
         /// Login窗体逻辑执行
         /// </summary>
         /// <returns></returns>
-        public String Transfer_Login_Form()
+        public Boolean Transfer_LoginMain_Form()
         {
-
-            program_Main_Bean.LoginMain_Bean = new LoginMain_Bean();
-
-            Application.Run(program_Main_Bean.LoginMain_Bean.LoginMain);
-
-            return program_Main_Bean.LoginMain_Bean.LoginMain.DialogResult.ToString();
+            try
+            {
+                LogHelper.WriteInfoLog("LoginMain_Guide object starts instantiation!");
+                this.program_Main_Bean.LoginMain_Guide = new LoginMain_Guide();
+            }
+            catch (Exception Ex)
+            {
+                LogHelper.WriteFatalLog("LoginMain_Guide object initialization failed", Ex);
+                MessageBox.Show("LoginMain_Guide object instantiation failed!");
+                throw Ex;
+            }
+            return Judgment_Form_Status(this.program_Main_Bean.LoginMain_Guide.Init_Guide_Start());
         }
 
 

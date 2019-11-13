@@ -35,18 +35,14 @@ namespace MyOperation.Beans.Forms_Beans
     {
         //Init初始化窗体引导程序
         private Init_Guide init_Guide;
-        private LoginMain_Bean loginMain_Bean;
-        //程序开始过程中初始化标志位
-        private Boolean init_flg= false;
-
+        private LoginMain_Guide loginMain_Guide;
         /// <summary>
         /// 无参构造函数
         /// </summary>
         public Program_Main_Bean() { }
 
-        
-        public LoginMain_Bean LoginMain_Bean { get => loginMain_Bean; set => loginMain_Bean = value; }
-        public bool Init_flg { get => init_flg; set => init_flg = value; }
+      
         public Init_Guide Init_Guide { get => init_Guide; set => init_Guide = value; }
+        public LoginMain_Guide LoginMain_Guide { get => loginMain_Guide; set => loginMain_Guide = value; }
     }
 }

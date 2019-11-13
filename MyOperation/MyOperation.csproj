@@ -31,6 +31,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Ico_01.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject>MyOperation.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -58,6 +65,7 @@
     <Compile Include="Common_Method\JDBC_Operation\JDBC_Information.cs" />
     <Compile Include="Common_Method\Log_Operation\LogHelper.cs" />
     <Compile Include="Forms\Guide_Forms\Init_Guide.cs" />
+    <Compile Include="Forms\Guide_Forms\LoginMain_Guide.cs" />
     <Compile Include="Forms\Init\Init.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,13 +117,14 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Ico_01.ico" />
     <Content Include="Images\Ico_01.ico" />
     <Content Include="Images\Init_01.jpg" />
     <Content Include="Images\Init_02.jpg" />
     <Content Include="Images\LoginMain_01_Close.png" />
     <Content Include="Images\LoginMain_01_Min.png" />
     <Content Include="Images\LoginMain_02.jpeg" />
-    <Content Include="Library\log4net.dll" />
+    <EmbeddedResource Include="Library\log4net.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

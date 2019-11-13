@@ -35,14 +35,21 @@ namespace MyOperation.Forms.Init
 {
     public class Init_Event
     {
-        private Init_Bean init_Bean;
+        public Init_Bean init_Bean;
+        #region 构造函数
         /// <summary>
         /// 无参构造函数
         /// </summary>
         public Init_Event() { }
-        public Init_Event(Init_Bean init_Bean) { this.init_Bean = init_Bean; }
-
-        public Init_Bean Init_Bean { get => init_Bean; set => init_Bean = value; }
+        /// <summary>
+        /// 有参数构造函数
+        /// </summary>
+        /// <param name="init_Bean"></param>
+        public Init_Event(Init_Bean init_Bean)
+        {
+            if (init_Bean != null) { this.init_Bean = init_Bean; }
+        }
+        #endregion
         /// <summary>
         /// Init窗体在绘制过程中加载函数
         /// </summary>

@@ -70,7 +70,9 @@ namespace MyOperation.Forms.Guide_Forms
                 LogHelper.WriteInfoLog("The object declared in the Init_Bean starts to initialize");
                 this.init_Bean = new Init_Bean();
                 this.init_Bean.All_Init_Photos = new List<FileInfo>();
+                LogHelper.WriteInfoLog("The object declared in the Init_Event starts to initialize");
                 this.init_Bean.Init_Event = new Init_Event();
+                LogHelper.WriteInfoLog("The object declared in the Init_Method starts to initialize");
                 this.init_Bean.Init_Method = new Init_Method();
                 this.init_Bean.Path_Operation = new Path_Operation();
                 this.init_Bean.Photos_Operation = new Photos_Operation();
@@ -80,8 +82,8 @@ namespace MyOperation.Forms.Guide_Forms
             catch (Exception Ex)
             {
                 Instantiated_flag = false;
-                LogHelper.WriteFatalLog("The object declared in the Init_Bean init fail!", Ex);
-                MessageBox.Show("Instantiated_object method run fail!");
+                LogHelper.WriteFatalLog("The Instantiated_object() method run fail!", Ex);
+                MessageBox.Show("The Instantiated_object() method run fail!");
                 throw Ex;
             }
             return Instantiated_flag;
@@ -97,15 +99,15 @@ namespace MyOperation.Forms.Guide_Forms
             {
                 LogHelper.WriteInfoLog("The Init object declared in the Init_Bean starts to initialize");
                 this.init_Bean.Init = new Init.Init(this.init_Bean.Init_Event);
-                this.init_Bean.Init_Event.Init_Bean = this.init_Bean;
-                this.init_Bean.Init_Method.Init_Bean = this.init_Bean;
+                this.init_Bean.Init_Event.init_Bean= this.init_Bean;
+                this.init_Bean.Init_Method.init_Bean = this.init_Bean;
                 LogHelper.WriteInfoLog("Init form starts running");
                 Application.Run(this.init_Bean.Init);
                 Start_Run_InitForm_flag = this.init_Bean.Init.DialogResult.ToString();            }
             catch (Exception Ex)
             {
-                LogHelper.WriteFatalLog("The Init object declared in the Init_Bean init fail!", Ex);
-                MessageBox.Show("Initialization of the form instance failed!");
+                LogHelper.WriteFatalLog("The Start_Run_InitForm() method run fail!", Ex);
+                MessageBox.Show("The Start_Run_InitForm() method run fail!");
                 throw Ex;
             }
             return Start_Run_InitForm_flag;
