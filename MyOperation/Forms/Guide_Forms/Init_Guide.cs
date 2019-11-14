@@ -68,8 +68,7 @@ namespace MyOperation.Forms.Guide_Forms
             try
             {
                 LogHelper.WriteInfoLog("The object declared in the Init_Bean starts to initialize");
-                this.init_Bean = new Init_Bean();
-                this.init_Bean.All_Init_Photos = new List<FileInfo>();
+                this.init_Bean = new Init_Bean();     
                 LogHelper.WriteInfoLog("The object declared in the Init_Event starts to initialize");
                 this.init_Bean.Init_Event = new Init_Event();
                 LogHelper.WriteInfoLog("The object declared in the Init_Method starts to initialize");

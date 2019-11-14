@@ -39,7 +39,6 @@ namespace MyOperation.Beans.Forms_Beans
         #region 变量，对象申明
         //图片相对路径前缀
         private String imagesDir = "\\Images\\";
-        private List<FileInfo> all_Init_Photos;
         private Photos_Operation photos_Operation;
         private Path_Operation path_Operation;
         private Init_Method init_Method;
@@ -80,7 +79,6 @@ namespace MyOperation.Beans.Forms_Beans
         public Path_Operation Path_Operation { get => path_Operation; set => path_Operation = value; }
         public string ImagesDir { get => imagesDir; set => imagesDir = value; }
         public Init_Method Init_Method { get => init_Method; set => init_Method = value; }
-        public List<FileInfo> All_Init_Photos { get => all_Init_Photos; set => all_Init_Photos = value; }
         public Timer TimerOne { get => timerOne; set => timerOne = value; }
         public int TimerOneInterval { get => timerOneInterval; set => timerOneInterval = value; }
         public Init_Event Init_Event { get => init_Event; set => init_Event = value; }

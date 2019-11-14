@@ -61,25 +61,6 @@ namespace MyOperation.Forms.Init
             //向Windows发送拖动窗体的消息
             Init_Bean.SendMessage(form.Handle, Init_Bean.WM_SYSCOMMAND, Init_Bean.SC_MOVE + Init_Bean.HTCAPTION, 0);
         }
-        /// <summary>
-        /// Init窗体中获取背景图片绝对路径处理方法，实现随机显示背景图片
-        /// </summary>
-        /// <returns></returns>
-        public String Get_Index_PhotoPath()
-        {
-            String Init_background_Photopath = null;
-            this.init_Bean.All_Init_Photos = this.init_Bean.Photos_Operation.Get_AllPhotos_Path(
-                this.init_Bean.Photos_Operation.All_Serch_Photos(
-                    this.init_Bean.Path_Operation.Update_Path(1) + this.init_Bean.ImagesDir, new String[] { "jpg", "jpeg" })
-                    , "Init_");
-            //生成随机数
-            Random rd = new Random();
-            //判断能否获取到Init图片集合，如果不能获取，则结束函数
-            if (this.init_Bean.All_Init_Photos.Count < 0) { return Init_background_Photopath; }
-            //获取生成的随机数对应的图片路径
-            Init_background_Photopath = this.init_Bean.Photos_Operation.Get_Photo_Path(rd.Next(1, this.init_Bean.All_Init_Photos.Count + 1), this.init_Bean.All_Init_Photos);
-            return Init_background_Photopath;
-        }
 
         /// <summary>
         /// 启动定时器1

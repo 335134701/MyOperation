@@ -83,11 +83,11 @@ namespace MyOperation.Common_Method.Files_Operation
         /// <param name="path_Allfile">路径下所有的文件集合</param>
         /// <param name="prefixNmae">寻找文件前缀</param>
         /// <returns>返回集合对象</returns>
-        public List<FileInfo> Get_AllPhotos_Path(List<FileInfo> All_Init_Photos, String prefixNmae)
+        public List<FileInfo> Get_AllPhotos_Path(List<FileInfo> All_Photos, String prefixNmae)
         {
             List<FileInfo> photosFile_List = new List<FileInfo>();
             //获取图片名包含Init图片集合
-            foreach (FileInfo fileinfo in All_Init_Photos)
+            foreach (FileInfo fileinfo in All_Photos)
             {
                 if (fileinfo.Name.Contains(prefixNmae)) photosFile_List.Add(fileinfo);
             }
@@ -116,6 +116,30 @@ namespace MyOperation.Common_Method.Files_Operation
             }
             //返回绝对路径
             return path;
+        }
+
+        /// <summary>
+        /// Init窗体中获取背景图片绝对路径处理方法，实现随机显示背景图片
+        /// </summary>
+        /// <returns></returns>
+        public String Get_Index_PhotoPath(String ImagesDir, String message,int index,Path_Operation path_Operation)
+        {
+            String Photopath = null;
+            List<FileInfo> photosFile_List = new List<FileInfo>();
+            photosFile_List = this.Get_AllPhotos_Path(this.All_Serch_Photos(path_Operation.Update_Path(1)+ImagesDir, new String[] { "jpg", "jpeg" }),message);
+            //判断能否获取到Init图片集合，如果不能获取，则结束函数
+            if (photosFile_List.Count < 0) { return Photopath; }
+            //生成随机数
+            Random rd = new Random();
+            if (index < 0)
+            {
+                //获取生成的随机数对应的图片路径
+                Photopath = this.Get_Photo_Path(rd.Next(1, photosFile_List.Count + 1), photosFile_List);
+            }
+            else {
+                Photopath = this.Get_Photo_Path(index, photosFile_List);
+            }
+            return Photopath;
         }
     }
 }

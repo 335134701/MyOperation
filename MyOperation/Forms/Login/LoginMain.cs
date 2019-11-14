@@ -40,6 +40,7 @@ namespace MyOperation.Forms.Login
                 this.LoginMain_TOP_Close.MouseEnter += new System.EventHandler(this.loginMain_Event.Close_MouseEnter);
                 this.LoginMain_TOP_Close.MouseLeave += new System.EventHandler(this.loginMain_Event.Close_MouseLeave);
                 this.LoginMain_SystemICON.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.loginMain_Event.SystemICON_MouseDoubleClick);
+                this.loginMain_Event.LoginMain_Event_Load();
             }
         }
         /// <summary>

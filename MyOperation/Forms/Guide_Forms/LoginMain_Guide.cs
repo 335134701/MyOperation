@@ -24,9 +24,12 @@
 ///
 /// ***********************************************************************
 using MyOperation.Beans.Forms_Beans;
+using MyOperation.Common_Method.Files_Operation;
 using MyOperation.Common_Method.Log_Operation;
 using MyOperation.Forms.Login;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 
 namespace MyOperation.Forms.Guide_Forms
@@ -66,7 +69,9 @@ namespace MyOperation.Forms.Guide_Forms
                 LogHelper.WriteInfoLog("The object declared in the LoginMain_Event starts to initialize");
                 this.loginMain_Bean.LoginMain_Event = new LoginMain_Event();
                 LogHelper.WriteInfoLog("The object declared in the LoginMain_Method starts to initialize");
-                this.loginMain_Bean.LoginMain_Method = new LoginMain_Method();
+                this.loginMain_Bean.LoginMain_Method = new LoginMain_Method();          
+                this.loginMain_Bean.Path_Operation = new Path_Operation();
+                this.loginMain_Bean.Photos_Operation = new Photos_Operation();
                 Instantiated_flag = true;
             }
             catch (Exception Ex)

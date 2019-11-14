@@ -50,6 +50,18 @@ namespace MyOperation.Forms.Login
         public LoginMain_Event(LoginMain_Bean loginMain_Bean) { if (loginMain_Bean != null) { this.loginMain_Bean = loginMain_Bean; } }
         #endregion
 
+        /// <summary>
+        /// LoginMain窗体加载过程中的初始化函数
+        /// </summary>
+        public void LoginMain_Event_Load() {
+            String BackgroundImagePath = this.loginMain_Bean.Photos_Operation.Get_Index_PhotoPath(this.loginMain_Bean.ImagesDir,"LoginMain_",-1,this.loginMain_Bean.Path_Operation).ToString();
+            if (!BackgroundImagePath.Equals(null))
+            {
+                //设置背景图片
+                this.loginMain_Bean.LoginMain.LoginMain_Background.BackgroundImageLayout = ImageLayout.Stretch;
+                this.loginMain_Bean.LoginMain.LoginMain_Background.BackgroundImage = Image.FromFile(BackgroundImagePath);
+            }
+        }
 
         #region 窗体移动事件处理函数
         /// <summary>

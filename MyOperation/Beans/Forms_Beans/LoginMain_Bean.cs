@@ -23,14 +23,21 @@
 /// =================================
 ///
 /// ***********************************************************************
+using MyOperation.Common_Method.Files_Operation;
 using MyOperation.Forms.Login;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Runtime.InteropServices;
 
 namespace MyOperation.Beans.Forms_Beans
 {
     public class LoginMain_Bean
     {
+        //图片相对路径前缀
+        private String imagesDir = "\\Images\\";
+        private Photos_Operation photos_Operation;
+        private Path_Operation path_Operation;
         private LoginMain loginMain;
         private LoginMain_Method loginMain_Method;
         private LoginMain_Event loginMain_Event;
@@ -59,6 +66,9 @@ namespace MyOperation.Beans.Forms_Beans
         public LoginMain LoginMain { get => loginMain; set => loginMain = value; }
         public LoginMain_Method LoginMain_Method { get => loginMain_Method; set => loginMain_Method = value; }
         public LoginMain_Event LoginMain_Event { get => loginMain_Event; set => loginMain_Event = value; }
+        public string ImagesDir { get => imagesDir; set => imagesDir = value; }
+        public Photos_Operation Photos_Operation { get => photos_Operation; set => photos_Operation = value; }
+        public Path_Operation Path_Operation { get => path_Operation; set => path_Operation = value; }
         #endregion
     }
 }

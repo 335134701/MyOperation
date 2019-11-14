@@ -55,7 +55,7 @@ namespace MyOperation.Forms.Init
         /// </summary>
         public void Init_Event_Load()
         {
-            String BackgroundImagePath = this.init_Bean.Init_Method.Get_Index_PhotoPath().ToString();
+            String BackgroundImagePath = this.init_Bean.Photos_Operation.Get_Index_PhotoPath(this.init_Bean.ImagesDir,"Init_",-1,this.init_Bean.Path_Operation).ToString();
             if (!BackgroundImagePath.Equals(null))
             {
                 //设置背景图片
