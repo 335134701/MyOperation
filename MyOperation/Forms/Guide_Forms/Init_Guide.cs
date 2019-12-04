@@ -28,8 +28,6 @@ using MyOperation.Common_Method.Files_Operation;
 using MyOperation.Common_Method.Log_Operation;
 using MyOperation.Forms.Init;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Windows.Forms;
 
 namespace MyOperation.Forms.Guide_Forms

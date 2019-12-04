@@ -115,7 +115,7 @@ namespace MyOperation.Forms.Login
         /// <param name="e"></param>
         public void Min_Click(object sender, EventArgs e)
         {
-          
+            //语句执行顺序固定，否则容易导致界面花屏现象
             //改变窗体状态
             this.loginMain_Bean.LoginMain.WindowState = FormWindowState.Minimized;
             //系统托盘图标可见
@@ -136,6 +136,7 @@ namespace MyOperation.Forms.Login
             this.loginMain_Bean.LoginMain.Dispose();
         }
 
+
         /// <summary>
         /// 双击系统托盘图标执行方法
         /// 主要用于窗体还原的实现
@@ -144,16 +145,15 @@ namespace MyOperation.Forms.Login
         /// <param name="e"></param>
         public void SystemICON_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            //设置窗体正常显示
-            this.loginMain_Bean.LoginMain.WindowState = FormWindowState.Normal;
-            //激活窗体并给予它焦点 
-            this.loginMain_Bean.LoginMain.Activate();
+            //语句执行顺序固定，否则容易导致界面花屏现象
             //开启任务栏显示
             this.loginMain_Bean.LoginMain.ShowInTaskbar = true;
+            //激活窗体并给予它焦点 
+            this.loginMain_Bean.LoginMain.Activate();
             //设置系统托盘图标不可见
             this.loginMain_Bean.LoginMain.LoginMain_SystemICON.Visible = false;
-           
-            
+            //设置窗体正常显示
+            this.loginMain_Bean.LoginMain.WindowState = FormWindowState.Normal;
         }
         /// <summary>
         /// 按钮移入事件触发执行方法
