@@ -57,15 +57,15 @@ namespace MyOperation
                 return;
             }
             */
-            
             //如果Login相关窗体执行失败则程序退出
             LogHelper.WriteInfoLog("Transfer_LoginMain_Form() method starts executing!");
-            if (!Transfer_LoginMain_Form())
+            Transfer_LoginMain_Form();
+           /* if (!Transfer_LoginMain_Form())
             {
                 LogHelper.WriteWarnLog("Transfer_LoginMain_Form() method failed to execute, program exited!");
                 return;
             }
-            
+            */
             //结束进程中的程序
             Application.Exit();
 
@@ -96,6 +96,7 @@ namespace MyOperation
         /// <returns></returns>
         public Boolean Transfer_LoginMain_Form()
         {
+            
             try
             {
                 LogHelper.WriteInfoLog("LoginMain_Guide object starts instantiation!");
@@ -106,7 +107,7 @@ namespace MyOperation
                 LogHelper.WriteFatalLog("LoginMain_Guide object initialization failed", Ex);
                 MessageBox.Show("LoginMain_Guide object instantiation failed!");
                 throw Ex;
-            }
+            } 
             return Judgment_Form_Status(this.program_Main_Bean.LoginMain_Guide.Init_Guide_Start());
         }
 
@@ -120,7 +121,7 @@ namespace MyOperation
         public Boolean Judgment_Form_Status(String Form_Over_Status)
         {
             Boolean flag = false;
-            if (Form_Over_Status.Equals("OK"))
+            if (!Form_Over_Status.Equals("") && Form_Over_Status.Equals("OK"))
             {
                 flag = true;
             }

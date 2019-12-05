@@ -124,7 +124,7 @@ namespace MyOperation.Common_Method.Files_Operation
         /// <returns></returns>
         public String Get_Index_PhotoPath(String ImagesDir, String message,int index,Path_Operation path_Operation)
         {
-            String Photopath = null;
+            String Photopath = "";
             List<FileInfo> photosFile_List = new List<FileInfo>();
             photosFile_List = this.Get_AllPhotos_Path(this.All_Serch_Photos(path_Operation.Update_Path(1)+ImagesDir, new String[] { "jpg", "jpeg" }),message);
             //判断能否获取到Init图片集合，如果不能获取，则结束函数
@@ -133,12 +133,14 @@ namespace MyOperation.Common_Method.Files_Operation
             Random rd = new Random();
             if (index < 0)
             {
+              
                 //获取生成的随机数对应的图片路径
                 Photopath = this.Get_Photo_Path(rd.Next(1, photosFile_List.Count + 1), photosFile_List);
             }
             else {
                 Photopath = this.Get_Photo_Path(index, photosFile_List);
             }
+            Console.WriteLine(Photopath);
             return Photopath;
         }
     }

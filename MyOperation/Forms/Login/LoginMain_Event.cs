@@ -49,20 +49,22 @@ namespace MyOperation.Forms.Login
         /// <param name="loginMain_Bean"></param>
         public LoginMain_Event(LoginMain_Bean loginMain_Bean) { if (loginMain_Bean != null) { this.loginMain_Bean = loginMain_Bean; } }
         #endregion
-
+        
         /// <summary>
         /// LoginMain窗体加载过程中的初始化函数
         /// </summary>
         public void LoginMain_Event_Load() {
-            String BackgroundImagePath = this.loginMain_Bean.Photos_Operation.Get_Index_PhotoPath(this.loginMain_Bean.ImagesDir,"LoginMain_",-1,this.loginMain_Bean.Path_Operation).ToString();
-            if (!BackgroundImagePath.Equals(null))
+            String BackgroundImagePath = "";
+            BackgroundImagePath=  this.loginMain_Bean.Photos_Operation.Get_Index_PhotoPath(this.loginMain_Bean.ImagesDir,"LoginMain_",-1,this.loginMain_Bean.Path_Operation).ToString();
+            if (!BackgroundImagePath.Equals(""))
             {
                 //设置背景图片
                 this.loginMain_Bean.LoginMain.LoginMain_Background.BackgroundImageLayout = ImageLayout.Stretch;
                 this.loginMain_Bean.LoginMain.LoginMain_Background.BackgroundImage = Image.FromFile(BackgroundImagePath);
             }
+            
         }
-
+        
         #region 窗体移动事件处理函数
         /// <summary>
         /// 鼠标按下事件触发执行方法
@@ -105,7 +107,7 @@ namespace MyOperation.Forms.Login
             this.loginMain_Bean.LoginMain_Method.LoginMain_Form_Move(this.loginMain_Bean.LoginMain);
         }
         #endregion
-
+        
         #region  TOP按钮触发事件处理实现
         /// <summary>
         /// 按钮按下事件触发执行方法
@@ -214,6 +216,6 @@ namespace MyOperation.Forms.Login
             this.loginMain_Bean.LoginMain.LoginMain_TOP_Close.FlatAppearance.BorderSize = 0;
         }
         #endregion
-
+    
     }
 }

@@ -44,12 +44,12 @@ namespace MyOperation.Forms.Guide_Forms
 
         public String Init_Guide_Start()
         {
-            String LoginMain_Guide_Start_flag = null;
+            String LoginMain_Guide_Start_flag = "";
             LogHelper.WriteInfoLog("Instantiated_object method starts executing!");
             //判断Instantiated_object方法执行成功与否，若成功则继续执行
             if (Instantiated_object())
             {
-                LogHelper.WriteInfoLog("Start_Run_InitForm method starts executing!");
+                LogHelper.WriteInfoLog("Start_Run_LoginMainForm() method starts executing!");
                 LoginMain_Guide_Start_flag = Start_Run_LoginMainForm();
             }
             return LoginMain_Guide_Start_flag;
@@ -90,7 +90,7 @@ namespace MyOperation.Forms.Guide_Forms
         /// <returns>返回窗体结束状态值</returns>
         public String Start_Run_LoginMainForm()
         {
-            String Start_Run_LoginMainForm_flag = null;
+            String Start_Run_LoginMainForm_flag = "";
             try
             {
                 LogHelper.WriteInfoLog("The Init object declared in the Init_Bean starts to initialize");

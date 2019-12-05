@@ -16,7 +16,7 @@ namespace MyOperation.Forms.Login
         public LoginMain(LoginMain_Event loginMain_Event)
         {
             InitializeComponent();
-            if (loginMain_Event != null) { this.loginMain_Event = loginMain_Event; }
+            if (loginMain_Event != null) { this.loginMain_Event = loginMain_Event;}
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace MyOperation.Forms.Login
         {
             if (this.loginMain_Event != null)
             {
-
+               
                 this.LoginMain_Bottom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.loginMain_Event.Bottom_MouseDown);
                 this.LoginMain_TOP.MouseDown += new System.Windows.Forms.MouseEventHandler(this.loginMain_Event.TOP_MouseDown);
                 this.LoginMain_TOP_Left.MouseDown += new System.Windows.Forms.MouseEventHandler(this.loginMain_Event.TOP_Left_MouseDown);
@@ -41,6 +41,7 @@ namespace MyOperation.Forms.Login
                 this.LoginMain_TOP_Close.MouseLeave += new System.EventHandler(this.loginMain_Event.Close_MouseLeave);
                 this.LoginMain_SystemICON.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.loginMain_Event.SystemICON_MouseDoubleClick);
                 this.loginMain_Event.LoginMain_Event_Load();
+                
             }
         }
         /// <summary>
@@ -55,6 +56,7 @@ namespace MyOperation.Forms.Login
                 return cp;
             }
         }
+
         #endregion
     }
 }
