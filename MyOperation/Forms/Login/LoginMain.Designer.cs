@@ -35,7 +35,9 @@
             this.LoginMain_Login = new System.Windows.Forms.Panel();
             this.LoginMain_Login_Center = new System.Windows.Forms.Panel();
             this.LoginMain_Login_Center_Center = new System.Windows.Forms.Panel();
-            this.LoginMain_Login_Center_Left_UserInput = new System.Windows.Forms.TextBox();
+            this.LoginMain_Login_Center_LoginButtom = new System.Windows.Forms.Button();
+            this.LoginMain_Login_Center_PasswdInput = new System.Windows.Forms.TextBox();
+            this.LoginMain_Login_Center_UserInput = new System.Windows.Forms.TextBox();
             this.LoginMain_Login_Center_Right = new System.Windows.Forms.Panel();
             this.LoginMain_Login_Center_Left = new System.Windows.Forms.Panel();
             this.LoginMain_Login_Center_Left_PasswdTittle = new System.Windows.Forms.Label();
@@ -114,40 +116,74 @@
             this.LoginMain_Login_Center.Name = "LoginMain_Login_Center";
             this.LoginMain_Login_Center.Size = new System.Drawing.Size(270, 178);
             this.LoginMain_Login_Center.TabIndex = 1;
+           
             // 
             // LoginMain_Login_Center_Center
             // 
             this.LoginMain_Login_Center_Center.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.LoginMain_Login_Center_Center.Controls.Add(this.LoginMain_Login_Center_Left_UserInput);
+            this.LoginMain_Login_Center_Center.Controls.Add(this.LoginMain_Login_Center_LoginButtom);
+            this.LoginMain_Login_Center_Center.Controls.Add(this.LoginMain_Login_Center_PasswdInput);
+            this.LoginMain_Login_Center_Center.Controls.Add(this.LoginMain_Login_Center_UserInput);
             this.LoginMain_Login_Center_Center.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LoginMain_Login_Center_Center.Location = new System.Drawing.Point(75, 0);
+            this.LoginMain_Login_Center_Center.Location = new System.Drawing.Point(70, 0);
             this.LoginMain_Login_Center_Center.Margin = new System.Windows.Forms.Padding(0);
             this.LoginMain_Login_Center_Center.Name = "LoginMain_Login_Center_Center";
             this.LoginMain_Login_Center_Center.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.LoginMain_Login_Center_Center.Size = new System.Drawing.Size(120, 178);
+            this.LoginMain_Login_Center_Center.Size = new System.Drawing.Size(130, 178);
             this.LoginMain_Login_Center_Center.TabIndex = 2;
+           
             // 
-            // LoginMain_Login_Center_Left_UserInput
+            // LoginMain_Login_Center_LoginButtom
             // 
-            this.LoginMain_Login_Center_Left_UserInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.LoginMain_Login_Center_LoginButtom.Location = new System.Drawing.Point(2, 133);
+            this.LoginMain_Login_Center_LoginButtom.Name = "LoginMain_Login_Center_LoginButtom";
+            this.LoginMain_Login_Center_LoginButtom.Size = new System.Drawing.Size(126, 41);
+            this.LoginMain_Login_Center_LoginButtom.TabIndex = 2;
+            this.LoginMain_Login_Center_LoginButtom.Text = "button1";
+            this.LoginMain_Login_Center_LoginButtom.UseVisualStyleBackColor = true;
+            // 
+            // LoginMain_Login_Center_PasswdInput
+            // 
+            this.LoginMain_Login_Center_PasswdInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.LoginMain_Login_Center_Left_UserInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LoginMain_Login_Center_Left_UserInput.Location = new System.Drawing.Point(2, 32);
-            this.LoginMain_Login_Center_Left_UserInput.MaxLength = 32;
-            this.LoginMain_Login_Center_Left_UserInput.Name = "LoginMain_Login_Center_Left_UserInput";
-            this.LoginMain_Login_Center_Left_UserInput.Size = new System.Drawing.Size(116, 21);
-            this.LoginMain_Login_Center_Left_UserInput.TabIndex = 0;
-            this.LoginMain_Login_Center_Left_UserInput.TabStop = false;
+            this.LoginMain_Login_Center_PasswdInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LoginMain_Login_Center_PasswdInput.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LoginMain_Login_Center_PasswdInput.Location = new System.Drawing.Point(2, 72);
+            this.LoginMain_Login_Center_PasswdInput.Margin = new System.Windows.Forms.Padding(10);
+            this.LoginMain_Login_Center_PasswdInput.MaxLength = 32;
+            this.LoginMain_Login_Center_PasswdInput.Name = "LoginMain_Login_Center_PasswdInput";
+            this.LoginMain_Login_Center_PasswdInput.PasswordChar = '*';
+            this.LoginMain_Login_Center_PasswdInput.ShortcutsEnabled = false;
+            this.LoginMain_Login_Center_PasswdInput.Size = new System.Drawing.Size(126, 34);
+            this.LoginMain_Login_Center_PasswdInput.TabIndex = 1;
+            this.LoginMain_Login_Center_PasswdInput.TabStop = false;
+            this.LoginMain_Login_Center_PasswdInput.UseSystemPasswordChar = true;
+            // 
+            // LoginMain_Login_Center_UserInput
+            // 
+            this.LoginMain_Login_Center_UserInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoginMain_Login_Center_UserInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LoginMain_Login_Center_UserInput.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LoginMain_Login_Center_UserInput.Location = new System.Drawing.Point(2, 32);
+            this.LoginMain_Login_Center_UserInput.Margin = new System.Windows.Forms.Padding(10);
+            this.LoginMain_Login_Center_UserInput.MaxLength = 10;
+            this.LoginMain_Login_Center_UserInput.Name = "LoginMain_Login_Center_UserInput";
+            this.LoginMain_Login_Center_UserInput.Size = new System.Drawing.Size(126, 34);
+            this.LoginMain_Login_Center_UserInput.TabIndex = 0;
+            this.LoginMain_Login_Center_UserInput.TabStop = false;
             // 
             // LoginMain_Login_Center_Right
             // 
             this.LoginMain_Login_Center_Right.BackColor = System.Drawing.Color.Gray;
             this.LoginMain_Login_Center_Right.Dock = System.Windows.Forms.DockStyle.Right;
-            this.LoginMain_Login_Center_Right.Location = new System.Drawing.Point(195, 0);
+            this.LoginMain_Login_Center_Right.Location = new System.Drawing.Point(200, 0);
             this.LoginMain_Login_Center_Right.Name = "LoginMain_Login_Center_Right";
-            this.LoginMain_Login_Center_Right.Size = new System.Drawing.Size(75, 178);
+            this.LoginMain_Login_Center_Right.Size = new System.Drawing.Size(70, 178);
             this.LoginMain_Login_Center_Right.TabIndex = 1;
+            
             // 
             // LoginMain_Login_Center_Left
             // 
@@ -157,8 +193,9 @@
             this.LoginMain_Login_Center_Left.Dock = System.Windows.Forms.DockStyle.Left;
             this.LoginMain_Login_Center_Left.Location = new System.Drawing.Point(0, 0);
             this.LoginMain_Login_Center_Left.Name = "LoginMain_Login_Center_Left";
-            this.LoginMain_Login_Center_Left.Size = new System.Drawing.Size(75, 178);
+            this.LoginMain_Login_Center_Left.Size = new System.Drawing.Size(70, 178);
             this.LoginMain_Login_Center_Left.TabIndex = 0;
+            
             // 
             // LoginMain_Login_Center_Left_PasswdTittle
             // 
@@ -168,7 +205,7 @@
             this.LoginMain_Login_Center_Left_PasswdTittle.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LoginMain_Login_Center_Left_PasswdTittle.Location = new System.Drawing.Point(3, 78);
             this.LoginMain_Login_Center_Left_PasswdTittle.Name = "LoginMain_Login_Center_Left_PasswdTittle";
-            this.LoginMain_Login_Center_Left_PasswdTittle.Size = new System.Drawing.Size(69, 23);
+            this.LoginMain_Login_Center_Left_PasswdTittle.Size = new System.Drawing.Size(64, 23);
             this.LoginMain_Login_Center_Left_PasswdTittle.TabIndex = 1;
             this.LoginMain_Login_Center_Left_PasswdTittle.Text = "密  码:";
             this.LoginMain_Login_Center_Left_PasswdTittle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -181,7 +218,7 @@
             this.LoginMain_Login_Center_Left_UserTittle.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LoginMain_Login_Center_Left_UserTittle.Location = new System.Drawing.Point(4, 35);
             this.LoginMain_Login_Center_Left_UserTittle.Name = "LoginMain_Login_Center_Left_UserTittle";
-            this.LoginMain_Login_Center_Left_UserTittle.Size = new System.Drawing.Size(69, 23);
+            this.LoginMain_Login_Center_Left_UserTittle.Size = new System.Drawing.Size(64, 23);
             this.LoginMain_Login_Center_Left_UserTittle.TabIndex = 0;
             this.LoginMain_Login_Center_Left_UserTittle.Text = "用户名:";
             this.LoginMain_Login_Center_Left_UserTittle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -196,6 +233,7 @@
             this.LoginMain_Login_Top.Name = "LoginMain_Login_Top";
             this.LoginMain_Login_Top.Size = new System.Drawing.Size(270, 73);
             this.LoginMain_Login_Top.TabIndex = 0;
+           
             // 
             // LoginMain_Login_TopTittle
             // 
@@ -209,6 +247,7 @@
             this.LoginMain_Login_TopTittle.TabIndex = 0;
             this.LoginMain_Login_TopTittle.Text = "登  录  界  面";
             this.LoginMain_Login_TopTittle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            
             // 
             // LoginMain_Bottom
             // 
@@ -337,6 +376,8 @@
         private System.Windows.Forms.Panel LoginMain_Login_Center_Right;
         protected internal System.Windows.Forms.Label LoginMain_Login_Center_Left_PasswdTittle;
         protected internal System.Windows.Forms.Label LoginMain_Login_Center_Left_UserTittle;
-        protected internal System.Windows.Forms.TextBox LoginMain_Login_Center_Left_UserInput;
+        protected internal System.Windows.Forms.TextBox LoginMain_Login_Center_UserInput;
+        protected internal System.Windows.Forms.TextBox LoginMain_Login_Center_PasswdInput;
+        private System.Windows.Forms.Button LoginMain_Login_Center_LoginButtom;
     }
 }
