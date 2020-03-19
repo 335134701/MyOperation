@@ -115,7 +115,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Beans\Common_Beans\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Ico_01.ico" />
     <Content Include="Images\Ico_01.ico" />

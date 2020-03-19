@@ -49,6 +49,7 @@ namespace MyOperation
         /// </summary>
         public void Program_Process()
         {
+            //Transfer_Init_Form();
             /*
             //如果Init窗体执行失败则程序退出
             LogHelper.WriteInfoLog("Transfer_Init_Form() method starts executing!");
@@ -60,12 +61,12 @@ namespace MyOperation
             //如果Login相关窗体执行失败则程序退出
             LogHelper.WriteInfoLog("Transfer_LoginMain_Form() method starts executing!");
             Transfer_LoginMain_Form();
-           /* if (!Transfer_LoginMain_Form())
-            {
-                LogHelper.WriteWarnLog("Transfer_LoginMain_Form() method failed to execute, program exited!");
-                return;
-            }
-            */
+            /* if (!Transfer_LoginMain_Form())
+             {
+                 LogHelper.WriteWarnLog("Transfer_LoginMain_Form() method failed to execute, program exited!");
+                 return;
+             }
+             */
             //结束进程中的程序
             Application.Exit();
 

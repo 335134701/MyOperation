@@ -36,7 +36,7 @@
             // 
             // Border
             // 
-            this.Border.BackColor = System.Drawing.Color.Gray;
+            this.Border.BackColor = System.Drawing.Color.Red;
             this.Border.Controls.Add(this.Background);
             this.Border.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Border.Location = new System.Drawing.Point(0, 0);
@@ -79,8 +79,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel Border;
         protected internal System.Windows.Forms.Panel Background;
+        protected internal System.Windows.Forms.Panel Border;
     }
 }

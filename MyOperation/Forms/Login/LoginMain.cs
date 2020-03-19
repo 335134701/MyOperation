@@ -29,24 +29,7 @@ namespace MyOperation.Forms.Login
             if (this.loginMain_Event != null)
             {
                
-                this.LoginMain_Bottom.MouseDown += new System.Windows.Forms.MouseEventHandler(this.loginMain_Event.Bottom_MouseDown);
-                this.LoginMain_TOP.MouseDown += new System.Windows.Forms.MouseEventHandler(this.loginMain_Event.TOP_MouseDown);
-                this.LoginMain_TOP_Left.MouseDown += new System.Windows.Forms.MouseEventHandler(this.loginMain_Event.TOP_Left_MouseDown);
-                this.LoginMain_TOP_Right.MouseDown += new System.Windows.Forms.MouseEventHandler(this.loginMain_Event.TOP_Right_MouseDown);
-                this.LoginMain_TOP_Min.Click += new System.EventHandler(this.loginMain_Event.Min_Click);
-                this.LoginMain_TOP_Min.MouseEnter += new System.EventHandler(this.loginMain_Event.Min_MouseEnter);
-                this.LoginMain_TOP_Min.MouseLeave += new System.EventHandler(this.loginMain_Event.Min_MouseLeave);
-                this.LoginMain_TOP_Close.Click += new System.EventHandler(this.loginMain_Event.Close_Click);
-                this.LoginMain_TOP_Close.MouseEnter += new System.EventHandler(this.loginMain_Event.Close_MouseEnter);
-                this.LoginMain_TOP_Close.MouseLeave += new System.EventHandler(this.loginMain_Event.Close_MouseLeave);
-                this.LoginMain_SystemICON.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.loginMain_Event.SystemICON_MouseDoubleClick);
-                this.LoginMain_Login_Center_UserInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loginMain_Event.LoginMain_Login_Center_UserInput_KeyPress);
-                this.LoginMain_Login_Center.MouseDown += new System.Windows.Forms.MouseEventHandler(this.loginMain_Event.LoginMain_Login_Center_MouseDown);
-                this.LoginMain_Login_Center_Center.MouseDown += new System.Windows.Forms.MouseEventHandler(this.loginMain_Event.LoginMain_Login_Center_Center_MouseDown);
-                this.LoginMain_Login_Center_Right.MouseDown += new System.Windows.Forms.MouseEventHandler(this.loginMain_Event.LoginMain_Login_Center_Right_MouseDown);
-                this.LoginMain_Login_Center_Left.MouseDown += new System.Windows.Forms.MouseEventHandler(this.loginMain_Event.LoginMain_Login_Center_Left_MouseDown);
-                this.LoginMain_Login_Top.MouseDown += new System.Windows.Forms.MouseEventHandler(this.loginMain_Event.LoginMain_Login_Top_MouseDown);
-                this.LoginMain_Login_TopTittle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.loginMain_Event.LoginMain_Login_TopTittle_MouseDown);
+
                 this.Form_decoration();
                 this.loginMain_Event.LoginMain_Event_Load();
                 
@@ -57,9 +40,10 @@ namespace MyOperation.Forms.Login
         /// </summary>
         public void Form_decoration()
         {
-
-
-
+            this.DoubleBuffered = true;//设置本窗体
+            this.SetStyle(ControlStyles.UserPaint, true);
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
+            this.SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
         }
         /// <summary>
         ///  窗体闪烁问题解决
@@ -74,7 +58,9 @@ namespace MyOperation.Forms.Login
             }
         }
 
+
         #endregion
 
+        
     }
 }

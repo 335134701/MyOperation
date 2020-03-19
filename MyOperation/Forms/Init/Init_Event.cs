@@ -63,8 +63,17 @@ namespace MyOperation.Forms.Init
                 this.init_Bean.Init.Background.BackgroundImageLayout = ImageLayout.Stretch;
                 this.init_Bean.Init.Background.BackgroundImage = Image.FromFile(BackgroundImagePath);
             }
+            //添加方法关联
+            this.Add_Method();
             //启动定时器
             this.init_Bean.Init_Method.Start_TimerOne();
+        }
+        /// <summary>
+        /// 指定控件对应的方法
+        /// </summary>
+        public void Add_Method()
+        {
+            this.init_Bean.Init.Background.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Background_MouseDown);
         }
         /// <summary>
         /// 鼠标按下事件触发执行方法

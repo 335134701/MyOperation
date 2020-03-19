@@ -49,6 +49,17 @@ namespace MyOperation.Forms.Login
         #endregion
 
 
+        /// <summary>
+        /// Login界面中注册/忘记等界面切换操作
+        /// </summary>
+        /// <param name="new_Panel">切换到新的界面</param>
+        /// <param name="old_Panel">切换原有界面</param>
+        public void  Panel_Switch(Panel new_Panel, Panel old_Panel)
+        {
+            this.loginMain_Bean.LoginMain.Background.Controls.Add(new_Panel);
+            this.loginMain_Bean.LoginMain.Background.Controls.Remove(old_Panel);
+            new_Panel.Visible = true;
+        }
 
         /// <summary>
         /// 处理窗体取消边框后的移动问题
